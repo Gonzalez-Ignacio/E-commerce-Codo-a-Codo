@@ -1,11 +1,71 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="/CSS/styleshome.css">
+    <title>GRUPO-19</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
-    
+    <header>
+        <nav>
+            <div class="info-sup merriweather-light">
+                <span>GRUPO-19</span>
+            </div>
+            <div class="info-central">
+                <form class="search">
+                    <input type="search" name="buscar" id="buscar">
+                    <button id="button-search" onclick="search()" type="submit"><img src="./images/lupa.png"
+                            alt="lupa"></button>
+                </form>
+
+                <div class="logo">
+                    <a href="index.html"><img src="./images/Logo.png" alt="G-19"></a>
+                </div>
+                <div class=carrito>
+                    <button class="merriweather-light" type="button" id="carrito-button"><span><img class="carrito-img"
+                                src="./images/carrito-de-compras.png" alt="carrito-img"></span>Carrito</button>
+                    <ul class="sesion merriweather-light">
+                        <li><a id="nuevaCuenta" href="/crearCuenta.html">Crear cuenta</a></li>
+                        <li><a id="iniciarSesion" href="/iniciarSesion.html">Iniciar sesion</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="menu-nav">
+                <ul class="menu-ul merriweather-light">
+                    <li><a href="./index.html">Inicio</a></li>
+                    <li class="li-productos"><a href="./productos/productos.html">Productos</a>
+                        <ul class="menu-productos">
+                            <li class="menu-productos-li"><a href="./productos/velas/velas.html">Velas</a></li>
+                            <li class="menu-productos-li"><a href="./productos/difusores/difusores.html">Difusores</a></li>
+                            <li class="menu-productos-li"><a href="./productos/home-spray/home-spray.html">Home Spray</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="">Contacto</a></li>
+                </ul>
+            </div>
+            <hr>
+        </nav>
+    </header>
+<main>
+    <section class="banner">
+        <img src="./images/imagenes carrousel/imagen1.webp" alt="imagen1">
+        <img src="./images/imagenes carrousel/imagen2.webp" alt="imagen2">
+        <img src="./images/imagenes carrousel/imagen3.webp" alt="imagen3">
+    </section>
+
+</main>
+
+
+    <script src="./JS/app.js"></script>
 </body>
+
 </html>
