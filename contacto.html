@@ -173,14 +173,24 @@
                     <form class="text-start">
                         <div class="form-group mb-3">
                             <label for="name" class="mb-2">Nombre</label>
-                            <input class="form-control" type="text" id="name" name="name" required>
+                            <!-- Mensaje de error en caso de que este vació -->
+                            <span class="text-danger d-none ps-1" id="name-error">*Este campo es obligatorio</span>
+                            
+                            <input class="form-control" type="text" id="name" name="name">
                         </div>
                         <div class="form-group mb-3">
                             <label for="email" class="mb-2">Email</label>
-                            <input class="form-control" type="email" id="email" name="email" required>
+                            <!-- Mensaje de error en caso de que este vació -->
+                            <span class="text-danger d-none ps-1" id="email-error-input-void">*Este campo es obligatorio</span>
+                            <span class="text-danger d-none ps-1" id="email-error-not-include-condition">*Debe cumplir los requisitos</span>
+
+                            <input class="form-control" type="email" id="email" name="email">
                         </div>
                         <div class="form-group mb-3">
                             <label for="phone" class="mb-2">Teléfono</label>
+                            <!-- Mensaje de error en caso de que este vació -->
+                            <span class="text-danger d-none ps-1" id="phone-error">*Este campo es obligatorio</span>
+
                             <input class="form-control" type="number" id="phone" name="phone">
                         </div>
 
@@ -195,6 +205,9 @@
 
                         <div class="form-group mb-3">
                             <label for="message" class="mb-2">Mensaje</label>
+                            <!-- Mensaje de error en caso de que este vació -->
+                            <span class="text-danger d-none ps-1" id="message-error">*Este campo es obligatorio</span>
+
                             <textarea class="form-control" id="message" name="message"></textarea>
                         </div>
                         
@@ -202,14 +215,17 @@
 
                         <div class="row form-group">
                             <div class="col-12 col-md-6 mb-2 mb-md-0">
-                                <label for="checkbox" class="mb-2"> <input type="checkbox" id="checkbox"> He leído y acepto las condiciones de privacidad </label>
+                                <!-- Mensaje de error en caso de que este vació -->
+                                <span class="text-danger d-none ps-1 pt-1" id="condition-privacy-error">*Este campo es obligatorio</span>
+                                <label for="checkbox" class="mb-2"> <input type="checkbox" id="condition-privacy"> He leído y acepto las condiciones de privacidad </label>
                             </div>
 
                             <div class="col-12 col-md-6 d-flex justify-content-center d-sm-block">
-                                <button class="px-5 border-0 bg-btn text-white float-none float-sm-end fs-4" disabled >Enviar</button>
+                                <button id="btn-send" class="px-5 border-0 bg-btn text-white float-none float-sm-end fs-4" >Enviar</button>
                             </div>
                         </div>
                         
+                        <span class="d-none" id="mensaje-enviado">Mensaje Enviado</span>
                     </form>
                 </div>
             </div>
@@ -231,8 +247,8 @@
                 <div class="col-12 col-md-5 col-lg-3">
                     <h6 class="text-black"> MEDIOS DE PAGO </h6>
                     <div>
-                        <!-- Pago Facil -->
-                        <img src="./images/imagenes-footer/pago-facil.png" alt="Tarjeta Pago Facil"
+                        <!-- Pago Fácil -->
+                        <img src="./images/imagenes-footer/pago-facil.png" alt="Tarjeta Pago Fácil"
                             class="medios-de-pago">
                         <!-- Visa -->
                         <img src="./images/imagenes-footer/VISA.jpg" alt="Tarjeta Visa" class="medios-de-pago">
@@ -343,6 +359,7 @@
         crossorigin="anonymous"></script>
 
     <script src="./JS/app.js"></script>
+    <script src="./JS/contact.js"></script>
 
 </body>
 
