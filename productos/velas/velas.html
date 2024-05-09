@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/styleshome.css">
+    <link rel="stylesheet" href="/CSS/styles-products.css">
+    <title>GRUPO-19</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="info-sup merriweather-light">
+                <span>GRUPO-19</span>
+            </div>
+            <div class="info-central">
+                <form class="search">
+                    <input type="search" name="buscar" id="buscar">
+                    <button id="button-search" onclick="search()" type="submit"><img src="../../images/lupa.png"
+                            alt="lupa"></button>
+                </form>
+
+                <div class="logo">
+                    <a href="index.html"><img src="../../images/Logo.png" alt="G-19"></a>
+                </div>
+                <div class=carrito>
+                    <button class="merriweather-light" type="button" id="carrito-button"><span><img class="carrito-img"
+                                src="../../images/carrito-de-compras.png" alt="carrito-img"></span>Carrito</button>
+                    <ul class="sesion merriweather-light">
+                        <li><a id="nuevaCuenta" href="/crearCuenta.html">Crear cuenta</a></li>
+                        <li><a id="iniciarSesion" href="/iniciarSesion.html">Iniciar sesión</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="menu-nav">
+                <ul class="menu-ul merriweather-light">
+                    <li><a href="../../index.html">Inicio</a></li>
+                    <li class="li-productos"><a href="../productos.html">Productos</a>
+                        <ul class="menu-productos">
+                            <li class="menu-productos-li"><a href="./velas.html">Velas</a></li>
+                            <li class="menu-productos-li"><a href="../difusores/difusores.html">Difusores</a></li>
+                            <li class="menu-productos-li"><a href="../home-spray/home-spray.html">Home Spray</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="">Contacto</a></li>
+                </ul>
+            </div>
+            <hr>
+        </nav>
+    </header>
+    <main>
+        <section class="banner-products">
+            <img src="../../images/banners/banner-velas.png" alt="banner-de-velas">
+        </section>
+        <section class="breadcrumbs-order">
+            <ul class="breadcrumbs">
+                <li><a href="../../index.html">Inicio</a></li>
+                <span>/</span>
+                <li><a href="../productos.html">Productos</a></li>
+                <span>/</span>
+                <li class="actual-page">Velas</li>
+            </ul>
+            <div class="order">
+                <label for="sort">Ordenar por:</label>
+                <select name="sort" id="sort">
+                    <option value="price-ascending">Precio: Menor a Mayor</option>
+                    <option value="price-descending">Precio: Mayor a Menor</option>
+                    <option value="alpha-ascending">A - Z</option>
+                    <option value="alpha-descending">Z - A</option>
+                    <option value="created-descending">Más Nuevo al más Viejo</option>
+                    <option value="created-ascending">Más Viejo al más Nuevo</option>
+                    <option value="best-selling">Más Vendidos</option>
+                    <option value="user" selected="">Destacado</option>
+                </select>
+            </div>
+        </section>
+        <div class="main-container">
+            <aside>
+                <h4 class="filter">Filtros</h4>
+                <div class="filter-container">
+                    <form>
+                        <div class="precio">Precio</div>
+                        <div class="form-group">
+                            <span></span>
+                        </div>
+                    </form>
+                </div>
+            </aside>
+            <section class="products">
+                <article class="card-item">
+                    <img src="../../images/imagenes-velas/vela-malmo.webp" alt="" width="180x180">
+                    <div class="card.item-content">
+                        <a href="#" class="name-product">VELA MALMO</a>
+                        <p class="precio">$13.000</p>
+                        <button class="add-carrito">AGREGAR AL CARRITO</button>
+                    </div>
+                </article>
+                <article class="card-item">
+                    <img src="../../images/imagenes-velas/vela-milan.webp" alt="" width="180x180">
+                    <div class="card.item-content">
+                        <a href="#" class="name-product">VELA MILAN</a>
+                        <p class="precio">$14.000</p>
+                        <button class="add-carrito">AGREGAR AL CARRITO</button>
+                    </div>
+                </article>
+                <article class="card-item">
+                    <img src="../../images/imagenes-velas/vela-harads.webp" alt="" width="180x180">
+                    <div class="card.item-content">
+                        <a href="#" class="name-product">VELA HARADS</a>
+                        <p class="precio">$9.000</p>
+                        <button class="add-carrito">AGREGAR AL CARRITO</button>
+                    </div>
+                </article>
+                <article class="card-item">
+                    <img src="../../images/imagenes-velas/vela-brera.webp" alt="" width="180x180">
+                    <div class="card.item-content">
+                        <a href="#" class="name-product">VELA BRERA</a>
+                        <p class="precio">$19.000</p>
+                        <button class="add-carrito">AGREGAR AL CARRITO</button>
+                    </div>
+                </article>
+                <article class="card-item">
+                    <img src="../../images/imagenes-velas/fosforos-largos.webp" alt="" width="180x180">
+                    <div class="card.item-content">
+                        <a href="#" class="name-product">FOSFOROS LARGOS</a>
+                        <p class="precio">$4.800</p>
+                        <button class="add-carrito">SIN STOCK</button>
+                    </div>
+                </article>
+                <article class="card-item">
+                    <img src="../../images/imagenes-velas/casitas-de-forforos.webp" alt="" width="180x180">
+                    <div class="card.item-content">
+                        <a href="#" class="name-product">CASITAS DE FORFOROS</a>
+                        <p class="precio">$2.500</p>
+                        <button class="add-carrito">AGREGAR AL CARRITO</button>
+                    </div>
+                </article>
+                <article class="card-item">
+                    <img src="../../images/imagenes-velas/romantiek-regalo-amoroso.webp" alt="" width="180x180">
+                    <div class="card.item-content">
+                        <a href="#" class="name-product">ROMANTIEK - REGALO AMOROSO</a>
+                        <p class="precio">$40.000</p>
+                        <button class="add-carrito">AGREGAR AL CARRITO</button>
+                    </div>
+                </article>
+
+            </section>
+        </div>
+
+    </main>
+
+
+    <script src="../../JS/app.js"></script>
+</body>
+
+</html>

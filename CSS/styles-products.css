@@ -1,0 +1,96 @@
+.banner-products{
+    display: flex;
+    width: 80%;
+    height: 9rem;
+    margin: 30px auto;
+}
+
+.banner-products img{
+    flex-grow: 1;
+}
+
+.breadcrumbs-order{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: auto;
+}
+
+.breadcrumbs{
+    display: flex;
+    list-style: none;
+    gap: 3px;
+}
+
+.breadcrumbs li a{
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #424242;
+}
+
+.actual-page{ 
+    font-size: 1.2rem;
+    font-weight: bolder;
+    color: #424242;
+}
+
+select{
+    height: 2rem;
+    width: 14rem;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+button,input,label{
+    font-size: 0.8rem;
+}
+
+.main-container{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    width: 80%;
+    margin: 30px auto;
+}
+
+.filter{
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.filter-container{
+    width: 80%;
+}
+
+.products{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem
+    
+}
+
+.card-item{
+    padding: 10px 0;
+    text-align: center;
+    border-top: 1px solid rgba(44,62,80,.2)
+}
+
+.name-product{
+    display: inline-block;
+    color: black;
+    text-decoration: none;
+    margin: 5px;
+}
+
+.precio{
+    margin-bottom: 13px;
+}
+
+.add-carrito{
+    background-color: #f1c40f;
+    border: none;
+    color: white;
+    font-size: 11px;
+    padding: 13px;
+
+}
