@@ -7,10 +7,11 @@
     <link rel="stylesheet" href="../../CSS/styleGlobal.css">
     <link rel="stylesheet" href="../../CSS/styleshome.css">
     <link rel="stylesheet" href="../../CSS/stylesproducts.css">
+    <link rel="stylesheet" href="../../CSS/styleindividualprod.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <title>Comprar Difusores en GRUPO-19</title>
+    <title>Comprar Home Spray en GRUPO-19</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -48,10 +49,9 @@
                     <li class="li-productos"><a href="../productos.html">Productos</a>
                         <ul class="menu-productos">
                             <li class="menu-productos-li"><a href="../velas/velas.html">Velas</a></li>
-                            <li class="menu-productos-li"><a href="difusores.html">Difusores</a>
+                            <li class="menu-productos-li"><a href="../difusores/difusores.html">Difusores</a>
                             </li>
-                            <li class="menu-productos-li"><a href="../home-spray/home-spray.html">Home
-                                    Spray</a></li>
+                            <li class="menu-productos-li"><a href="home-spray.html">Home Spray</a></li>
                         </ul>
                     </li>
                     <li><a href="../../contacto.html" target="_blank">Contacto</a></li>
@@ -61,175 +61,26 @@
         </nav>
     </header>
     <main>
-        <section class="banner-products">
-            <img src="../../images/banners/banner-difusores.png" alt="banner-de-difusores">
-        </section>
         <section class="breadcrumbs-order">
             <ul class="breadcrumbs">
                 <li><a href="../../index.html">Inicio</a></li>
                 <span>/</span>
                 <li><a href="../productos.html">Productos</a></li>
                 <span>/</span>
-                <li class="actual-page"> Difusores</li>
+                <li class="actual-page">Home Spray</li>
             </ul>
-            <div class="order">
-                <label for="sort">Ordenar por:</label>
-                <select name="sort" id="sort">
-                    <option value="price-ascending">Precio: Menor a Mayor</option>
-                    <option value="price-descending">Precio: Mayor a Menor</option>
-                    <option value="alpha-ascending">A - Z</option>
-                    <option value="alpha-descending">Z - A</option>
-                    <option value="created-descending">Más Nuevo al más Viejo</option>
-                    <option value="created-ascending">Más Viejo al más Nuevo</option>
-                    <option value="best-selling">Más Vendidos</option>
-                    <option value="user" selected="">Destacado</option>
-                </select>
-            </div>
         </section>
-        <div class="main-container">
-            <aside>
-                <h4 class="filter_index">Filtros</h4>
-                <div class="filter-container">
-                    <form>
-                        <div class="price">Precio</div>
-                        <div class="form-group">
-                            <span class="filter-input-price">
-                                <label class="form-label">Desde</label>
-                                <input type="number" name="min-price" class="number-price" placeholder="2.500">
-                            </span>
-                            <span class="filter-input-price">
-                                <label class="form-label">Hasta</label>
-                                <input type="number" name="max-price" class="number-price" placeholder="40.000">
-                            </span>
-                             <span>
-                                <button type="submit" class="btn-price">
-                                    <img src="../../images/flecha.png" alt="flecha">
-                                 </button>
-                             </span>
-                            
-                            
-                            
-                        </div>
-                    </form>
-                </div>
-            </aside>
-            <section class="products merriweather-light">
-                <article class="card-item">
-                    <a href="">
-                        <img src="../../images/imagenes-velas/vela-malmo.webp" alt="">
-                    </a>
-                    <a href="">
-                        <h5>Vela Malmo</h5>
-                    </a>
-                    <p>$13.000</p>
-                    <button type="submit">Agregar al carrito</button>
-                </article>
-                <article class="card-item">
-                    <a href="">
-                        <img src="../../images/imagenes-velas/vela-milan.webp" alt="">
-                    </a>
-                    <a href="">
-                        <h5>Vela Milan</h5>
-                    </a>
-                    <p>$14.000</p>
-                    <button type="submit">Agregar al carrito</button>
-                </article>
-                <article class="card-item">
-                    <a href="">
-                        <img src="../../images/imagenes-velas/vela-harads.webp" alt="">
-                    </a>
-                    <a href="">
-                        <h5>Vela Harads</h5>
-                    </a>
-                    <p>$9.000</p>
-                    <button type="submit">Agregar al carrito</button>
-                </article>
-                <article class="card-item">
-                    <a href="">
-                        <img src="../../images/imagenes-velas/vela-brera.webp" alt="">
-                    </a>
-                    <a href="">
-                        <h5>Vela Brera</h5>
-                    </a>
-                    <p>$19.000</p>
-                    <button type="submit">Agregar al carrito</button>
-                </article>
-                <article class="card-item">
-                    <a href="">
-                        <img src="../../images/imagenes-velas/fosforos-largos.webp" alt="">
-                    </a>
-                    <a href="">
-                        <h5>Fosforos Largos</h5>
-                    </a>
-                    <p>$4.800</p>
-                    <div class="exhausted">SIN STOCK</div>
-                </article>
-                <article class="card-item">
-                    <a href="">
-                        <img src="../../images/imagenes-velas/casitas-de-forforos.webp" alt="">
-                    </a>
-                    <a href="">
-                        <h5>Casita de Fosforos</h5>
-                    </a>
-                    <p>$2.500</p>
-                    <button type="submit">Agregar al carrito</button>
-                </article>
-                <article class="card-item">
-                    <a href="">
-                        <img src="../../images/imagenes-velas/casitas-de-forforos.webp" alt="">
-                    </a>
-                    <a href="">
-                        <h5>Casita de Fosforos</h5>
-                    </a>
-                    <p>$2.500</p>
-                    <button type="submit">Agregar al carrito</button>
-                </article>
-                <article class="card-item">
-                    <a href="">
-                        <img src="../../images/imagenes-velas/casitas-de-forforos.webp" alt="">
-                    </a>
-                    <a href="">
-                        <h5>Casita de Fosforos</h5>
-                    </a>
-                    <p>$2.500</p>
-                    <button type="submit">Agregar al carrito</button>
-                </article>
-                <article class="card-item">
-                    <a href="">
-                        <img src="../../images/imagenes-velas/casitas-de-forforos.webp" alt="">
-                    </a>
-                    <a href="">
-                        <h5>Casita de Fosforos</h5>
-                    </a>
-                    <p>$2.500</p>
-                    <button type="submit">Agregar al carrito</button>
-                </article>
-                <article class="card-item">
-                    <a href="">
-                        <img src="../../images/imagenes-velas/casitas-de-forforos.webp" alt="">
-                    </a>
-                    <a href="">
-                        <h5>Casita de Fosforos</h5>
-                    </a>
-                    <p>$2.500</p>
-                    <button type="submit">Agregar al carrito</button>
-                </article>
-                <article class="card-item">
-                    <a class="new-product" href="">
-                        <img src="../../images/imagenes-velas/romantiek-regalo-amoroso.webp" alt="">
-                        <div>
-                            <span>NUEVO</span>
-                        </div>
-                    </a>
-                    <a href="">
-                        <h5>Romantiek - Regalo Amoroso</h5>
-                    </a>
-                    <p>$40.000</p>
-                    <button type="submit">Agregar al carrito</button>
-                </article>
-
+        <!-- ########################################################################################### -->
+        <section class="main-container-product">
+            <section class="img_description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda est praesentium debitis? Possimus in eum saepe optio. Natus mollitia hic dignissimos repellendus praesentium perspiciatis laboriosam doloremque laborum cum. Eligendi, illo!
             </section>
-        </div>
+            <section class="buy">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis voluptatibus fugit consectetur, veniam quo quam neque ipsa? Quis cupiditate et ea? Corporis culpa dolorum temporibus nesciunt recusandae ipsa nulla error?
+            </section>
+
+        </section>
+        <!-- ########################################################################################### -->
     </main>
     <footer class="justify-content-center py-4 " id="footer">
         <div class="container">
@@ -351,7 +202,7 @@
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
     <script src="../../JS/index.js"></script>
-    <script src="../..//JS/contact.js"></script>
+    <script src="../../JS/contact.js"></script>
 </body>
 
 </html>

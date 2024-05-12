@@ -27,7 +27,10 @@ body{background-color: transparent !important ;}
 
 header {
     width: 100%;
-    height: 25rem;
+}
+
+ol, ul{
+    list-style: none;
 }
 
 .info-sup {
