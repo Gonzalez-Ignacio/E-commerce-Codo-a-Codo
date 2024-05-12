@@ -26,52 +26,50 @@
 <body>
     
     <!-- Header -->
-    <nav>
-        <div class="info-sup merriweather-light">
-            <span>GRUPO-19</span>
-        </div>
-        <div class="info-central">
-            <form class="search">
-                <input type="search" name="buscar" id="buscar">
-                
-                <button id="button-search" onclick="search()" type="submit">
-                    <img src="./images/lupa.png" alt="lupa">
-                </button>
-            </form>
-
-            <div class="logo">
-                <a href="index.html"><img src="./images/logo_G-19-removebg-preview.png" alt="G-19"></a>
+    <header>
+        <nav>
+            <div class="info-sup merriweather-light">
+                <span>GRUPO-19</span>
             </div>
-            <div class="carrito">
-                <button class="merriweather-light" type="button" id="carrito-button">
-                    <span class="pe-3">
-                        <i class="bi bi-cart"></i>
-                    </span>
+            <div class="info-central">
+                <form class="search">
+                    <input type="search" name="buscar" id="buscar">
+                    <button id="button-search" onclick="search()" type="submit"><img src="./images/lupa.png"
+                            alt="lupa"></button>
+                </form>
 
-                    Carrito
-                </button>
-                <ul class="sesion merriweather-light">
-                    <li><a id="nuevaCuenta" href="/crearCuenta.html" target="_blank">Crear cuenta</a></li>
-                    <li><a id="iniciarSesion" href="/iniciarSesion.html" target="_parent">Iniciar sesión</a></li>
+                <div class="logo">
+                    <a href="index.html"><img src="./images/logo_G-19-removebg-preview.png" alt="G-19"></a>
+                </div>
+                <div class=carrito>
+                    <button class="merriweather-light" type="button" id="carrito-button">
+                        <span><img class="carrito-img" src="./images/carrito-de-compras.png"
+                                alt="carrito-img"></span>Carrito</button>
+                    <ul class="sesion merriweather-light">
+                        <li><a id="nuevaCuenta" href="/crearCuenta.html">Crear cuenta</a></li>
+                        <li><a id="iniciarSesion" href="/iniciarSesion.html" target="_blank">Iniciar sesión</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="menu-nav">
+                <ul class="menu-ul merriweather-light">
+                    <li><a href="./index.html">Inicio</a></li>
+                    <li class="li-productos"><a href="./productos/productos.html" target="_blank">Productos</a>
+                        <ul class="menu-productos">
+                            <li class="menu-productos-li"><a href="./productos/velas/velas.html" target="_blank">Velas</a></li>
+                            <li class="menu-productos-li"><a href="./productos/difusores/difusores.html"target="_blank">Difusores</a>
+                            </li>
+                            <li class="menu-productos-li"><a href="./productos/home-spray/home-spray.html"target="_blank">Home
+                                    Spray</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="./contacto.html" target="_blank">Contacto</a></li>
                 </ul>
             </div>
-        </div>
-        <hr>
-        <div class="menu-nav">
-            <ul class="menu-ul merriweather-light">
-                <li><a href="./index.html">Inicio</a></li>
-                <li class="li-productos"><a href="./productos/productos.html" target="_blank">Productos</a>
-                    <ul class="menu-productos">
-                        <li class="menu-productos-li"><a href="./productos/velas/velas.html"target="_blank">Velas</a></li>
-                        <li class="menu-productos-li"><a href="./productos/difusores/difusores.html"target="_blank">Difusores</a></li>
-                        <li class="menu-productos-li"><a href="./productos/home-spray/home-spray.html"target="_blank">Home Spray</a></li>
-                    </ul>
-                </li>
-                <li><a href="/contacto.html">Contacto</a></li>
-            </ul>
-        </div>
-        <hr>
-    </nav>
+            <hr>
+        </nav>
+    </header>
 
 
     <!-- Main -->
