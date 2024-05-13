@@ -1,8 +1,41 @@
 .main-container-product{
     display: grid;
-    grid-template-columns: 4fr 3fr;
+    grid-template-columns: 5fr 4fr;
+    gap: 4rem;
     width: 80%;
     margin: 30px auto;
+}
+
+.img_description {
+    text-align: center;
+}
+
+.img-product{
+    width: 80%;
+}
+
+.description-product{
+    text-align: start;
+    margin-top: 3rem;
+}
+
+.description-product p{
+    margin-bottom: 2rem;
+}
+
+.description-product p:first-child{
+    font-weight: bold;
+}
+
+.description-product p:nth-child(3){
+    font-family: CentraNube;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.description-product p span{
+    padding-bottom: 1rem;
+    display: inline-block;
 }
 
 .product-form-container{
@@ -10,12 +43,65 @@
     flex-direction: column;
 }
 
+.product-price{
+    font-size: 3rem;
+    margin: 1.25rem 0 2.5rem 0;
+    position: relative;
+    font-weight: bold;
+    line-height: 30px;
+}
+
 /* descripcion de las cuotas */
 .label-line {
     border: 1px solid rgba(241, 196, 15, .3);
     color: #f1c40f;
+    width: 60%;
 }
 
 .label-line>div{
     padding: 5px 10px;
+}
+
+.label-line div div:last-child{
+    padding: 5px 10px;
+    border: 1px solid rgba(241, 196, 15, .3);
+}
+
+.label-line span{
+    font-weight: bold;
+}
+
+.container-product-select {
+    margin-top: 1rem;
+    border-top: 1px solid rgba(44, 62, 80, .3);
+}
+
+.title-product {
+    padding: 1rem 0 .7rem 0;
+    margin: 0;
+}
+
+.scent{
+    padding: .2rem;
+    box-sizing: content-box;
+}
+
+.container-product-count {
+    margin-top: 1rem;
+}
+
+.count-product {
+    margin: 0 0 .5rem 0;
+}
+
+.input-count-product {
+    width: 15%;
+    padding-left: .3rem;
+}
+
+.btn-buy {
+    margin-top: 2rem;
+    padding: .4rem 0;
+    background-color: #bba56ecc;
+    border: none;
 }
