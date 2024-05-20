@@ -201,5 +201,23 @@ input[type=number]::-webkit-outer-spin-button {
     color: #000;
     z-index: 2;
     font-size: .95rem;
+}
 
+@media (min-width: 992px) and (max-width: 1249px){
+    .breadcrumbs-order{
+        width: 992px;
+    }
+}
+    
+
+@media only screen and (min-width: 768px) and (max-width:991px){
+    .breadcrumbs-order{
+        width: 768px;
+    }
+}
+
+@media only screen and (max-width:767px){
+    .breadcrumbs-order{
+        width: 95%;
+    }
 }
