@@ -3,9 +3,16 @@
     padding: 0%;
 }
 
+<<<<<<< HEAD
 body {
     background-color: transparent !important;
 }
+=======
+body{
+    background-color: transparent !important ;
+}
+
+>>>>>>> c9b17577444e8c6ec94c3d591c2798fcdfa92747
 
 /* Boton + disabled */
 .bg-btn {
@@ -182,7 +189,7 @@ ul {
 }
 
 hr {
-    width: 80% !important;
+    width: 80%;
     margin: 10px auto !important;
 
 }
@@ -501,9 +508,9 @@ hr {
     text-align: center;
 }
 
-footer .medios-de-pago {
-    width: 30px;
-    height: 20px;
+.payment-methods {
+    width: 35px;
+    height: 25px;
 }
 
 .d-flex {
