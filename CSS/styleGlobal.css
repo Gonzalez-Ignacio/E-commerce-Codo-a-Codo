@@ -3,16 +3,15 @@
     padding: 0%;
 }
 
-<<<<<<< HEAD
-body {
+<<<<<<< HEAD body {
     background-color: transparent !important;
 }
-=======
-body{
-    background-color: transparent !important ;
+
+=======body {
+    background-color: transparent !important;
 }
 
->>>>>>> c9b17577444e8c6ec94c3d591c2798fcdfa92747
+>>>>>>>c9b17577444e8c6ec94c3d591c2798fcdfa92747
 
 /* Boton + disabled */
 .bg-btn {
@@ -443,9 +442,10 @@ hr {
     .li-productos {
         position: relative;
         width: 100px;
-        
+
     }
-    #menu-desplegable{
+
+    #menu-desplegable {
         text-align: center;
 
     }
@@ -471,7 +471,7 @@ hr {
         font-size: 12px;
         text-decoration: none;
         color: #424242;
-        
+
     }
 
     .menu-productos li a:hover {
@@ -516,8 +516,34 @@ hr {
 .d-flex {
     justify-content: center;
 }
-@media(min-width:320px)and(max-width:480){
-    .col-12{
-        width: 100%;
+
+@media(min-width:320px) and (max-width:480px) {
+    #footer {
+        background-color: navajowhite;
+        display: flex;
+        width: 90%;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin: 25px auto;
+        position: relative;
+        font-size: 12px;
     }
+
+    .col-12 {
+        text-align: center;
+        font-size: 12px;
+    }
+
+    .payment-methods {
+        width: 35px;
+        height: 25px;
+
+    }
+    .text-black{font-size: 12px;}
+
+    .d-flex {
+        justify-content: center;
+    }
+
 }
