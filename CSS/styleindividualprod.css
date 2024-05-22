@@ -146,6 +146,10 @@
     .main-container-product{
         width: 768px;
     }
+
+    .img-product{
+        width: 100%;
+    }
 }
 
 @media only screen and (max-width:767px){

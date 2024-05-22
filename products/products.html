@@ -1,20 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../CSS/styleGlobal.css">
-    <link rel="stylesheet" href="../../CSS/stylesproducts.css">
+    <title>Comprar Productos en GRUPO-19</title>
+    <!-- Css -->
+    <link rel="stylesheet" href="../CSS/styleGlobal.css">
+    <link rel="stylesheet" href="../CSS/styleProducts.css">
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <title>Comprar Velas en GRUPO-19</title>
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -22,38 +23,38 @@
         <nav>
             <div class="info-central">
                 <form class="search">
-                    <input type="search" name="buscar" id="buscar" autocomplete="off">
-                    <button id="button-search" type="submit"><img src="../../images/lupa.png"
+                    <input type="search" name="buscar" id="buscar">
+                    <button id="button-search" onclick="search()" type="submit"><img src="../images/lupa.png"
                             alt="lupa"></button>
                 </form>
 
                 <div class="logo">
-                    <a href="../../index.html"><img src="../../images/logo_G-19-removebg-preview.png" alt="G-19"></a>
+                    <a href="../index.html"><img src="../images/logo_G-19-removebg-preview.png" alt="G-19"></a>
                 </div>
                 <div class=carrito>
                     <button class="merriweather-light" type="button" id="carrito-button">
-                        <span><img class="carrito-img" src="../../images/carrito-de-compras.png"
+                        <span><img class="carrito-img" src="../images/carrito-de-compras.png"
                                 alt="carrito-img"></span>Carrito</button>
                     <ul class="sesion merriweather-light">
-                        <li><a id="nuevaCuenta" href="../../crearCuenta.html" target="_blank">Crear cuenta</a></li>
-                        <li><a id="iniciarSesion" href="../../iniciarSesion.html" target="_blank">Iniciar sesion</a></li>
+                        <li><a id="nuevaCuenta" href="../signUp.html" target="_blank">Crear cuenta</a></li>
+                        <li><a id="iniciarSesion" href="../login.html" target="_blank">Iniciar sesion</a></li>
                     </ul>
                 </div>
             </div>
             <hr>
             <div class="menu-nav">
                 <ul class="menu-ul merriweather-light">
-                    <li><a href="../../index.html">Inicio</a></li>
-                    <li class="li-productos"><a href="../productos.html">Productos</a>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li class="li-productos"><a href="products.html">Productos</a>
                         <ul class="menu-productos">
-                            <li class="menu-productos-li"><a href="velas.html">Velas</a></li>
-                            <li class="menu-productos-li"><a href="../difusores/difusores.html">Difusores</a>
+                            <li class="menu-productos-li"><a href="./candles/candles.html">Velas</a></li>
+                            <li class="menu-productos-li"><a href="./diffusers/diffusers.html">Difusores</a>
                             </li>
-                            <li class="menu-productos-li"><a href="../home-spray/home-spray.html">Home
+                            <li class="menu-productos-li"><a href="./homeSpray/homeSpray.html">Home
                                     Spray</a></li>
                         </ul>
                     </li>
-                    <li><a href="../../contacto.html" target="_blank">Contacto</a></li>
+                    <li><a href="../contact.html" target="_blank">Contacto</a></li>
                 </ul>
             </div>
             <hr>
@@ -61,15 +62,13 @@
     </header>
     <main>
         <section class="banner-products">
-            <img src="../../images/banners/banner-velas.png" alt="banner-de-velas">
+            <img src="../images/banners/banner-productos.png" alt="banner-de-productos">
         </section>
         <section class="breadcrumbs-order">
             <ul class="breadcrumbs">
-                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../index.html">Inicio</a></li>
                 <span>/</span>
-                <li><a href="../productos.html">Productos</a></li>
-                <span>/</span>
-                <li class="actual-page">Velas</li>
+                <li class="actual-page">Productos</li>
             </ul>
             <div class="order">
                 <label for="sort">Ordenar por:</label>
@@ -87,37 +86,52 @@
         </section>
         <div class="main-container">
             <aside>
-                <h4 class="filter_index">Filtros</h4>
-                <div class="filter-container">
-                    <form>
-                        <div class="price">Precio</div>
-                        <div class="form-group">
-                            <span class="filter-input-price">
-                                <label class="form-label">Desde</label>
-                                <input type="number" name="min-price" class="number-price" placeholder="2.500">
-                            </span>
-                            <span class="filter-input-price">
-                                <label class="form-label">Hasta</label>
-                                <input type="number" name="max-price" class="number-price" placeholder="40.000">
-                            </span>
-                             <span>
-                                <button type="submit" class="btn-price">
-                                    <img src="../../images/flecha.png" alt="flecha">
-                                 </button>
-                             </span>
-                            
-                            
-                            
-                        </div>
-                    </form>
-                </div>
+                <section>
+                    <h4 class="filter_index">Productos</h4>
+                <ul class="index-products">
+                    <li>
+                        <a href="./diffusers/diffusers.html">Difusores de Varillas</a>
+                    </li>
+                    <li>
+                        <a href="./homeSpray/homeSpray.html">Home Spray</a>
+                    </li>
+                    <li>
+                        <a href="./candles/candles.html">Velas</a>
+                    </li>
+                </ul>
+                </section>
+                <section>
+                    <h4 class="filter_index">Filtros</h4>
+                    <div class="filter-container">
+                        <form>
+                            <div class="price">Precio</div>
+                            <div class="form-group">
+                                <span class="filter-input-price">
+                                    <label class="form-label">Desde</label>
+                                    <input type="number" name="min-price" class="number-price" placeholder="2.500">
+                                </span>
+                                <span class="filter-input-price">
+                                    <label class="form-label">Hasta</label>
+                                    <input type="number" name="max-price" class="number-price" placeholder="40.000">
+                                </span>
+                                 <span>
+                                    <button type="submit" class="btn-price">
+                                        <img src="../images/flecha.png" alt="flecha">
+                                     </button>
+                                 </span>  
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
+
             </aside>
             <section class="products merriweather-light">
                 <article class="card-item">
-                    <a href="">
-                        <img src="../../images/imagenes-velas/vela-malmo.webp" alt="">
+                    <a href="../products/individualProducts/candleMalmo.html">
+                        <img src="../images/imagenes-velas/vela-malmo.webp" alt="">
                     </a>
-                    <a href="">
+                    <a href="../products/individualProducts/candleMalmo.html">
                         <h5>Vela Malmo</h5>
                     </a>
                     <p>$13.000</p>
@@ -125,7 +139,7 @@
                 </article>
                 <article class="card-item">
                     <a href="">
-                        <img src="../../images/imagenes-velas/vela-milan.webp" alt="">
+                        <img src="../images/imagenes-velas/vela-milan.webp" alt="">
                     </a>
                     <a href="">
                         <h5>Vela Milan</h5>
@@ -135,7 +149,7 @@
                 </article>
                 <article class="card-item">
                     <a href="">
-                        <img src="../../images/imagenes-velas/vela-harads.webp" alt="">
+                        <img src="../images/imagenes-velas/vela-harads.webp" alt="">
                     </a>
                     <a href="">
                         <h5>Vela Harads</h5>
@@ -145,7 +159,7 @@
                 </article>
                 <article class="card-item">
                     <a href="">
-                        <img src="../../images/imagenes-velas/vela-brera.webp" alt="">
+                        <img src="../images/imagenes-velas/vela-brera.webp" alt="">
                     </a>
                     <a href="">
                         <h5>Vela Brera</h5>
@@ -155,7 +169,7 @@
                 </article>
                 <article class="card-item">
                     <a href="">
-                        <img src="../../images/imagenes-velas/fosforos-largos.webp" alt="">
+                        <img src="../images/imagenes-velas/fosforos-largos.webp" alt="">
                     </a>
                     <a href="">
                         <h5>Fosforos Largos</h5>
@@ -165,7 +179,7 @@
                 </article>
                 <article class="card-item">
                     <a href="">
-                        <img src="../../images/imagenes-velas/casitas-de-forforos.webp" alt="">
+                        <img src="../images/imagenes-velas/casitas-de-forforos.webp" alt="">
                     </a>
                     <a href="">
                         <h5>Casita de Fosforos</h5>
@@ -175,7 +189,7 @@
                 </article>
                 <article class="card-item">
                     <a class="new-product" href="">
-                        <img src="../../images/imagenes-velas/romantiek-regalo-amoroso.webp" alt="">
+                        <img src="../images/imagenes-velas/romantiek-regalo-amoroso.webp" alt="">
                         <div>
                             <span>NUEVO</span>
                         </div>
@@ -195,22 +209,22 @@
             <div class="d-flex justify-content-center text-start row gap-3 gap-lg-0">
                 <div class="col-12 col-md-5 col-lg-3">
                     <h6 class="text-black"> NAVEGACIÓN </h6>
-                    <a href="../../contacto.html" class="text-decoration-none text-black" target="_blank"> Contacto </a>
+                    <a href="../contact.html" class="text-decoration-none text-black" target="_blank"> Contacto </a>
                 </div>
 
                 <div class="col-12 col-md-5 col-lg-3">
                     <h6 class="text-black"> MEDIOS DE PAGO </h6>
                     <div>
                         <!-- Pago Fácil -->
-                        <img src="../../images/imagenes-footer/pago-facil.png" alt="Tarjeta Pago Fácil"
+                        <img src="../images/imagenes-footer/pago-facil.png" alt="Tarjeta Pago Fácil"
                             class="payment-methods">
                         <!-- Visa -->
-                        <img src="../../images/imagenes-footer/VISA.jpg" alt="Tarjeta Visa" class="payment-methods">
+                        <img src="../images/imagenes-footer/VISA.jpg" alt="Tarjeta Visa" class="payment-methods">
                         <!-- American Express -->
-                        <img src="../../images/imagenes-footer/american-express.png" alt="Tarjeta American Express"
+                        <img src="../images/imagenes-footer/american-express.png" alt="Tarjeta American Express"
                             class="payment-methods">
                         <!-- Mastercard -->
-                        <img src="../../images/imagenes-footer/mastercard.png" alt="Tarjeta Mastercard"
+                        <img src="../images/imagenes-footer/mastercard.png" alt="Tarjeta Mastercard"
                             class="payment-methods">
                     </div>
                 </div>
@@ -309,8 +323,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
-    <script src="../../JS/index.js"></script>
-    <script src="../../JS/contact.js"></script>
+    <script src="../JS/index.js"></script>
+    <script src="../JS/contact.js"></script>
 </body>
 
 </html>

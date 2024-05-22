@@ -3,15 +3,13 @@
     padding: 0%;
 }
 
-<<<<<<< HEAD body {
+HEAD body {
     background-color: transparent !important;
 }
 
-=======body {
+body {
     background-color: transparent !important;
 }
-
->>>>>>>c9b17577444e8c6ec94c3d591c2798fcdfa92747
 
 /* Boton + disabled */
 .bg-btn {
@@ -42,14 +40,6 @@ header {
 ol,
 ul {
     list-style: none;
-}
-
-.info-sup {
-    text-align: center;
-    background-color: rgb(247, 247, 72);
-    height: 15%;
-    margin-bottom: 25px;
-    color: rgb(129, 143, 137);
 }
 
 .info-central {
