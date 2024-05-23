@@ -33,14 +33,30 @@
                     <a href="index.html"><img src="./images/logo_G-19-removebg-preview.png" alt="G-19"></a>
                 </div>
                 <div class=carrito>
-                    <button class="merriweather-light" type="button" id="carrito-button">
-                        <span><img class="carrito-img" src="./images/carrito-de-compras.png"
-                                alt="carrito-img"></span>Carrito</button>
+                    <button class="merriweather-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" 
+                        aria-controls="offcanvasWithBothOptions" id="carrito-button">
+                        <span>
+                            <img class="carrito-img" src="./images/carrito-de-compras.png"
+                                alt="carrito-img">
+                            </span>Carrito
+                    </button>
                     <ul class="sesion merriweather-light">
                         <li><a id="nuevaCuenta" href="/signUp.html" target="_blank">Crear cuenta</a></li>
                         <li><a id="iniciarSesion" href="/login.html" target="_blank">Iniciar sesion</a></li>
                     </ul>
                 </div>
+                <!-- Offcanvas menu inicio -->
+                <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+                    <div class="offcanvas-header">
+                      <h4 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">CARRITO DE COMPRAS</h4>
+                      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                      <span>PRODUCTO</span>
+                      <span>SUBTOTAL</span>
+                    </div>
+                </div>
+                <!-- Offcanvas menu fin -->
             </div>
             <hr>
             <div class="menu-nav">
