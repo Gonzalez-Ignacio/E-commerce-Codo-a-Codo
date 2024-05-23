@@ -24,29 +24,14 @@
 
 /*banner 320px a 480px*/
 
-@media (min-width:320px) and (max-width:480px) {
+@media (min-width:320px) and (max-width:576px) {
     .banner {
         display: flex;
         width: 90%;
         height: 8rem;
         margin: 2rem auto 0;
     }
-
-    .banner img {
-        width: 0;
-        flex-grow: 1;
-        object-fit: cover;
-        opacity: 0.8;
-        transition: 0.5s;
-    }
-
-    .banner img:hover {
-        opacity: 1;
-        width: 30%;
-        cursor: crosshair;
-        filter: contrast(120%)
-    }
-
+    
 
 
 }
@@ -122,7 +107,7 @@
 
 
 /*card 320px a 480px*/
-@media (min-width:320px) and (max-width:480px) {
+@media (min-width:320px) and (max-width:576px) {
 
     .cards {
         width: 90%;

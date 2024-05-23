@@ -260,7 +260,7 @@ hr {
 }
 
 /*navar 320px a 480px*/
-@media (min-width:320px) and (max-width:480px) {
+@media (min-width:320px) and (max-width:576px) {
 
     .merriweather-light {
         font-family: "Merriweather", serif;
@@ -497,7 +497,7 @@ hr {
     display: flex;
     width: 90%;
     flex-direction: row;
-    justify-content: center;
+    
     align-items: center;
     margin: 25px auto;
     position: relative;
@@ -517,33 +517,13 @@ hr {
     justify-content: center;
 }
 
-@media(min-width:320px) and (max-width:480px) {
-    #footer {
-        background-color: navajowhite;
-        display: flex;
-        width: 90%;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        margin: 25px auto;
-        position: relative;
-        font-size: 12px;
-    }
-
-    .col-12 {
-        text-align: center;
-        font-size: 12px;
-    }
-
-    .payment-methods {
-        width: 35px;
-        height: 25px;
-
-    }
+@media(min-width:320px) and (max-width:576px) {
     .text-black{font-size: 12px;}
+   
 
-    .d-flex {
-        justify-content: center;
+
     }
+    
 
-}
+    
+
