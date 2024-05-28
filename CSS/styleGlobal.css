@@ -129,15 +129,12 @@ ul {
 
 .carrito button {
     width: 100%;
-    font-size: 14px;
-    background-color: rgb(228, 222, 222);
-    font-weight: 300;
+    font-size: 1rem;
     border: none;
-
-    height: 25px;
     margin: 0%;
-    padding: 0%;
-    background-color: #bba56ecc
+    font-weight: 500;
+    padding: .2rem 0 .35rem 0;
+    background-color: #bba56ecc;
 }
 
 .carrito-img {
