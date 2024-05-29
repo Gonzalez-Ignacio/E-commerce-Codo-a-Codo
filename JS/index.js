@@ -31,7 +31,7 @@ function crearCards(imgProduct, titleProduct, priceProduct, countProduct, index)
     // Div
     const $createDiv = document.createElement("div");
     $createDiv.classList.add("cards-carrito");
-    $createDiv.id = `card-${index}`;
+    $createDiv.setAttribute("data-index", index);
     // Img
     $createImg = document.createElement("img");
     $createImg.classList.add("carrito-card-img");
@@ -164,16 +164,18 @@ function buttonsCarrito() {
   // Eliminar Div Carrito
   const btnEliminar = document.querySelectorAll(".btn-eliminar-carrito");
   btnEliminar.forEach((btnEliminar, index) => {
-      btnEliminar.addEventListener("click", () => {
+    btnEliminar.addEventListener("click", () => {
         // Eliminar Div
-        //   const deleteElement = document.getElementById(`card-${index}`);
-        //   deleteElement.remove();
-          const deleteElement = document.querySelector(`#card-${index}`);
-          deleteElement.remove();
-          console.log(index)
-          // Eliminar de la lista Carrito
-          carrito.splice(index, 1);
-          console.log(carrito);
-      });
-  })
+        const deleteElement = btnEliminar.closest('.cards-carrito');
+        deleteElement.remove();
+        // Eliminar de la lista Carrito
+        carrito.splice(index, 1);
+        // Actualizar data-index de los elementos restantes
+        document.querySelectorAll('.cards-carrito').forEach((card, newIndex) => {
+            card.setAttribute('data-index', newIndex);
+        });
+        // Volver a enlazar los eventos de los botones con los nuevos índices
+        buttonsCarrito();
+    });
+});
 }
