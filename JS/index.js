@@ -166,8 +166,11 @@ function buttonsCarrito() {
   btnEliminar.forEach((btnEliminar, index) => {
       btnEliminar.addEventListener("click", () => {
         // Eliminar Div
-          const deleteElement = document.getElementById(`card-${index}`);
+        //   const deleteElement = document.getElementById(`card-${index}`);
+        //   deleteElement.remove();
+          const deleteElement = document.querySelector(`#card-${index}`);
           deleteElement.remove();
+          console.log(index)
           // Eliminar de la lista Carrito
           carrito.splice(index, 1);
           console.log(carrito);
