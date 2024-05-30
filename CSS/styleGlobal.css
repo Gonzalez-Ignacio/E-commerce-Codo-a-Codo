@@ -41,10 +41,13 @@ ol,
 ul {
     list-style: none;
 }
+.cabecera{
+    display: none;
+}
 
 .info-central {
     display: flex;
-    align-items: center;
+    align-items: baseline;
 
     gap: 30px;
     margin: 25px;
@@ -132,9 +135,9 @@ ul {
     font-size: 14px;
     background-color: rgb(228, 222, 222);
     font-weight: 300;
-    border: none;
-
-    height: 25px;
+    border: 1px solid #bba56ecc;
+border-radius: 5px;
+    height: 30px;
     margin: 0%;
     padding: 0%;
     background-color: #bba56ecc
@@ -218,13 +221,12 @@ hr {
 .li-productos {
     position: relative;
     width: 100px;
-
-
 }
 
 .menu-nav li a:hover {
     color: #8b8888;
 }
+
 
 .menu-productos {
     position: absolute;
@@ -256,14 +258,14 @@ hr {
     z-index: 99;
 }
 
-/*navar 320px a 480px*/
+/*navar 320px a 576px*/
 @media (min-width:320px) and (max-width:576px) {
 
     .merriweather-light {
         font-family: "Merriweather", serif;
         font-weight: 400;
         font-style: normal;
-        font-size: 14px;
+        font-size: 12px;
 
         padding: 0%;
     }
@@ -306,44 +308,12 @@ hr {
     }
 
     .search {
-        width: 40%;
+        width: 50%;
         height: 60%;
 
         display: flex;
         align-items: center;
         justify-content: center;
-    }
-
-    .search input {
-        width: 80%;
-        border-radius: 5px 0 0 5px;
-        height: 30px;
-        border: 1px solid rgb(165, 163, 163);
-        border-right: none;
-        margin: 0%;
-        padding: 0%;
-    }
-
-    .search button {
-        width: 20%;
-        border: none;
-        border-radius: 0 5px 5px 0;
-        height: 30px;
-        margin: 0%;
-        padding: 0%;
-        border: 1px solid rgb(165, 163, 163);
-        border-left: none;
-        background-color: white;
-
-    }
-
-    .search button img {
-        opacity: 0.8;
-        width: 60%;
-        cursor: pointer;
-        height: 20px;
-        object-fit: cover;
-
     }
 
     .carrito {
@@ -353,81 +323,9 @@ hr {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-
-
-    }
-
-    .carrito button {
-        width: 100%;
-        font-size: 14px;
-        background-color: rgb(228, 222, 222);
-        font-weight: 300;
-        border: 2px solid #bba56ecc;
-        border-radius: 5px;
-        height: 25px;
-        margin: 0%;
-        padding: 0%;
-        background-color: #bba56ecc
-    }
-
-
-    .carrito-img {
-        object-fit: cover;
-        width: 20px;
-        height: 16px;
-        padding-top: 2px;
-        padding-right: 2px;
-
-    }
-
-    .carrito ul {
-        margin-top: 10px;
-        list-style: none;
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        justify-content: center;
-        text-align: center;
-        gap: 10px;
-        padding: 0%;
-
-
-    }
-
-    .sesion li a {
-        text-decoration: none;
-        font-size: 12px;
-        color: #424242;
-    }
-
-    #nuevaCuenta:hover {
-        color: #8b8888;
-    }
-
-    #iniciarSesion:hover {
-        color: #8b8888;
     }
 
     /*opciones de navegacion*/
-
-
-    .menu-nav {
-        width: 80%;
-        height: 40px;
-        margin: 0 auto;
-        padding: 0%;
-    }
-
-    .menu-ul {
-        list-style: none;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        width: 100%;
-        height: 100%;
-
-    }
 
     .menu-nav li a {
         color: #424242;
@@ -436,54 +334,180 @@ hr {
         width: 100%;
     }
 
-    .li-productos {
-        position: relative;
-        width: 100px;
+    #menu-desplegable {
+        text-align: center;
+    }
 
+    .menu-productos {
+        text-align: left;
+    }
+
+}
+@media (min-width:577px) and (max-width:768px) {
+    .merriweather-light {
+        font-family: "Merriweather", serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 14px;
+
+        padding: 0%;
+    }
+
+    .info-central {
+        display: flex;
+        align-items: baseline;
+        
+        gap: 25px;
+        margin: 0 auto;
+        width: 90%;
+        height: 10rem;
+
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0%;
+        padding: 0%;
+        width: 50%;
+        height: 60%;
+        object-fit: cover;
+
+    }
+
+    .logo a {
+        display: flex;
+        width: 90%;
+        height: 100%;
+    }
+
+    .logo a img {
+        display: flex;
+        margin: auto;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .search {
+        width: 25%;
+        height: 60%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .carrito {
+        width: 25%;
+        height: 60%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /*opciones de navegacion*/
+
+    .menu-nav li a {
+        color: #424242;
+        text-decoration: none;
+        font-size: 14px;
+        width: 100%;
+    }
+
+    
+
+    .menu-productos {
+        text-align: left;
+    }
+
+}
+@media (min-width:769px) and (max-width:1024px) {
+    .merriweather-light {
+        font-family: "Merriweather", serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 16px;
+
+        padding: 0%;
+    }
+
+    .info-central {
+        display: flex;
+        align-items: baseline;
+        gap: 25px;
+        margin: 0 auto;
+        width: 90%;
+        height: 12rem;
+
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0%;
+        padding: 0%;
+        width: 50%;
+        height: 60%;
+        object-fit: cover;
+
+    }
+
+    .logo a {
+        display: flex;
+        width: 90%;
+        height: 100%;
+    }
+
+    .logo a img {
+        display: flex;
+        margin: auto;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .search {
+        width: 25%;
+        height: 60%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .carrito {
+        width: 25%;
+        height: 60%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /*opciones de navegacion*/
+
+    .menu-nav li a {
+        color: #424242;
+        text-decoration: none;
+        font-size: 14px;
+        width: 100%;
     }
 
     #menu-desplegable {
         text-align: center;
-
-    }
-
-    .menu-nav li a:hover {
-        color: #8b8888;
     }
 
     .menu-productos {
-        position: absolute;
-        padding: 0px 0 10px 5px;
-        left: 0px;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        list-style: none;
-        display: none;
-        border: #b8b7b7 1px solid;
         text-align: left;
     }
 
-    .menu-productos li a {
-        font-size: 12px;
-        text-decoration: none;
-        color: #424242;
-
-    }
-
-    .menu-productos li a:hover {
-        color: #afafaf;
-        font-size: 13px;
-        transition: 0.5s;
-    }
-
-    .li-productos:hover .menu-productos {
-        display: block;
-        background-color: white;
-        z-index: 99;
-    }
-
 }
+
+
 
 /*fin navbar*/
 
@@ -491,36 +515,52 @@ hr {
 /* Footer */
 #footer {
     background-color: navajowhite;
-    display: flex;
     width: 90%;
-    flex-direction: row;
+    margin: auto;
+   
+}
+
+.col-12{
     
-    align-items: center;
-    margin: 25px auto;
-    position: relative;
-
-}
-
-.col-12 {
     text-align: center;
+    
 }
-
 .payment-methods {
     width: 35px;
     height: 25px;
 }
-
-.d-flex {
+.d-flex{
     justify-content: center;
 }
 
-@media(min-width:320px) and (max-width:576px) {
-    .text-black{font-size: 12px;}
-   
+@media (min-width:320px) and (max-width:576px) {
 
+    .merriweather-light {
+        font-family: "Merriweather", serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 12px;
 
+        padding: 0%;
     }
-    
+}
 
-    
+@media (min-width:577px) and (max-width:768px) {
+    .merriweather-light {
+        font-family: "Merriweather", serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 14px;
 
+        padding: 0%;
+    }}
+
+    @media (min-width:769px) and (max-width:1024px) {
+        .merriweather-light {
+            font-family: "Merriweather", serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 16px;
+    
+            padding: 0%;
+        }}

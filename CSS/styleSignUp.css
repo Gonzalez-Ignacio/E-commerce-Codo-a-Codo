@@ -23,7 +23,9 @@
     filter: blur(10px);
    
 }
-
+#menu-desplegable {
+    text-align: center;
+}
 
 .contenedor-form{
     width: 90%;
