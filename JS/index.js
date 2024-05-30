@@ -10,11 +10,11 @@ function mostrarBusqueda(event) {
         alert("Debe ingresar un valor");
     } else if (inputSearch == "velas") {
         // Utilizar "else if" para evitar evaluaciones innecesarias
-        window.location.href = "/productos/velas/velas.html";
+        window.location.href = "/products/candles/candles.html";
     } else if (inputSearch == "homespray") {
-        window.location.href = "/productos/home-spray/home-spray.html";
+        window.location.href = "/products/homeSpray/homeSpray.html";
     } else if (inputSearch == "difusores") {
-        window.location.href = "/productos/difusores/difusores.html";
+        window.location.href = "products/diffusers/diffusers.html";
     } else {
         alert("No se encontraron resultados para la búsqueda: " + inputSearch); // Agregar una alerta para manejar entradas no válidas
     }
