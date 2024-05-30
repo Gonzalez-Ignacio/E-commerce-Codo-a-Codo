@@ -158,7 +158,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .card-item img{
     width: 100%;
-    height: 12.5rem;
+    height: 15rem;
     object-fit: cover;
     padding: 5px 0;
     margin: 5px 0;
@@ -169,13 +169,14 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .card-item p{
-    font-size: .9rem;
+    font-size: 1.1rem;
     margin-bottom: 10px;
 }
 
 .card-item button {
     width: 60%;
-    font-weight: 300;
+    font-weight: 500;
+    padding: .2rem 0 .35rem 0;
     border: none;
     font-size: 1rem;
     background-color: #bba56ecc
@@ -196,7 +197,7 @@ input[type=number]::-webkit-outer-spin-button {
     position: absolute;
     top: 1rem;
     right: 0;
-    padding: 0.1rem 0.3rem;
+    padding: .1rem .3rem;
     background-color: #eee;
     color: #000;
     z-index: 2;
