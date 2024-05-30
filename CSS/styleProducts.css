@@ -101,14 +101,24 @@ aside section{
     
 }
 
-.number-price{
+.min-number-price{
     padding: 4px 6px;
     font-size: 13px;
     width: 100%;
     border: 1px solid rgba(44, 62, 80, .3);
 }
 
-.number-price::placeholder{
+.min-number-price::placeholder{
+    color:rgba(44, 62, 80, .3)
+}
+.max-number-price{
+    padding: 4px 6px;
+    font-size: 13px;
+    width: 100%;
+    border: 1px solid rgba(44, 62, 80, .3);
+}
+
+.max-number-price::placeholder{
     color:rgba(44, 62, 80, .3)
 }
 

@@ -90,28 +90,27 @@
             <aside>
                 <h4 class="filter_index">Filtros</h4>
                 <div class="filter-container">
-                    <form>
+                    <form class="form-filter">
                         <div class="price">Precio</div>
                         <div class="form-group">
                             <span class="filter-input-price">
                                 <label class="form-label">Desde</label>
-                                <input type="number" name="min-price" class="number-price" placeholder="2.500">
+                                <input type="number" name="min-price" class="min-number-price" placeholder="2.500">
                             </span>
                             <span class="filter-input-price">
                                 <label class="form-label">Hasta</label>
-                                <input type="number" name="max-price" class="number-price" placeholder="40.000">
+                                <input type="number" name="max-price" class="max-number-price" placeholder="40.000">
                             </span>
                              <span>
                                 <button type="submit" class="btn-price">
                                     <img src="../../images/flecha.png" alt="flecha">
-                                 </button>
+                                </button>
                              </span>
                         </div>
                     </form>
                 </div>
             </aside>
-            <section id="shopContent" class="products merriweather-light">
-                
+            <section id="velas" class="products merriweather-light">     
             </section>
         </div>
     </main>
@@ -230,11 +229,14 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous">
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-        crossorigin="anonymous"></script>
-    <script src="../../JS/product.js"></script>
+        crossorigin="anonymous">
+    </script>
+    <script src="../../JS/products.js"></script>
+    <script src="../../JS/productsFunctions.js"></script>
     <script src="../../JS/index.js"></script>
     <script src="../../JS/contact.js"></script>
 </body>
