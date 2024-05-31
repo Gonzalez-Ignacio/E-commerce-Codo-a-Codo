@@ -166,13 +166,41 @@ ul {
 }
 
 /* styles offcanvas */
-.offcanvas-body{
+.offcanvas-title{
     display: flex;
     justify-content: space-around;
     border-top: 1px solid rgba(44, 62, 80, .3);
-    border-bottom: 1px solid rgba(44, 62, 80, .3);
-    flex-grow: 0 !important;
 }
+
+.cards-carrito-container {
+    border-bottom: 1px solid rgb(165, 163, 163);
+    padding-bottom: 10px;
+}
+
+.carrito-card-img {
+    width: 60px;
+}
+
+.carrito-card-title {
+    font-size: 16px;
+    text-align: center;
+}
+
+.btn-restar-carrito {
+    padding: 1px 7px 1px 7px;
+    font-weight: 200;
+    background-color: white;
+}
+
+
+.btn-sumar-carrito {
+    padding: 1px 4.5px 1px 4.5px;
+    font-weight: 200;
+    background-color: white;
+}
+
+/* Fin styles offcanvas */
+
 
 .sesion li a {
     text-decoration: none;

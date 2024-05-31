@@ -16,51 +16,55 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
 
 </head>
 
 <body>
-    
+
     <header>
-        
+
         <nav>
             <div class="info-central">
                 <form class="search">
                     <input type="search" name="buscar" id="buscar" autocomplete="off" autofocus>
-                    <button id="button-search"type="submit"><img src="./images/lupa.png"
-                            alt="lupa"></button>
+                    <button id="button-search" type="submit"><img src="./images/lupa.png" alt="lupa"></button>
                 </form>
 
                 <div class="logo">
                     <a href="index.html"><img src="./images/logo_G-19-removebg-preview.png" alt="G-19"></a>
                 </div>
                 <div class=carrito>
-                    <button class="merriweather-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" 
-                        aria-controls="offcanvasWithBothOptions" id="carrito-button">
+                    <button class="merriweather-light" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"
+                        id="carrito-button">
                         <span>
-                            <img class="carrito-img" src="./images/carrito-de-compras.png"
-                                alt="carrito-img">
-                            </span>Carrito
+                            <img class="carrito-img" src="./images/carrito-de-compras.png" alt="carrito-img">
+                        </span>Carrito
                     </button>
                     <ul class="sesion merriweather-light">
                         <li><a id="nuevaCuenta" href="/signUp.html" target="_blank">Crear cuenta</a></li>
-                        <li><a id="iniciarSesion" href="/login.html" target="_blank">Iniciar sesion</a></li>
+                        <li><a id="iniciarSesion" href="/login.html" target="_blank">Iniciar sesión</a></li>
                     </ul>
                 </div>
                 <!-- Offcanvas menu inicio -->
-                <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+                <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+                    aria-labelledby="offcanvasWithBothOptionsLabel">
                     <div class="offcanvas-header">
-                      <h4 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">CARRITO DE COMPRAS</h4>
-                      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        <h4 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">CARRITO DE COMPRAS</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <!-- Titulos -->
                     <div class="offcanvas-body">
-                      <span>PRODUCTO</span>
-                      <span>SUBTOTAL</span>
-                      <div id="carrito-card-container">
-                          <!-- Se agrega contenido con JS -->
-                      </div>
+                        <div class="offcanvas-title">
+                            <span>PRODUCTO</span>
+                            <span>SUBTOTAL</span>
+                        </div>
+                        <div id="carrito-card-container">
+                            <!-- Se agrega contenido con JS -->
+                        </div>
                     </div>
                     <!-- Cards -->
                 </div>
@@ -70,12 +74,16 @@
             <div class="menu-nav">
                 <ul class="menu-ul merriweather-light">
                     <li><a href="./index.html">Inicio</a></li>
-                    <li class="li-productos" id="menu-desplegable"><a href="./products/products.html" target="_blank">Productos</a>
+                    <li class="li-productos" id="menu-desplegable"><a href="./products/products.html"
+                            target="_blank">Productos</a>
                         <ul class="menu-productos">
-                            <li class="menu-productos-li"><a href="./products/candles/candles.html" target="_blank">Velas</a></li>
-                            <li class="menu-productos-li"><a href="./products/diffusers/diffusers.html" target="_blank">Difusores</a>
+                            <li class="menu-productos-li"><a href="./products/candles/candles.html"
+                                    target="_blank">Velas</a></li>
+                            <li class="menu-productos-li"><a href="./products/diffusers/diffusers.html"
+                                    target="_blank">Difusores</a>
                             </li>
-                            <li class="menu-productos-li"><a href="./products/homeSpray/homeSpray.html" target="_blank">Home
+                            <li class="menu-productos-li"><a href="./products/homeSpray/homeSpray.html"
+                                    target="_blank">Home
                                     Spray</a></li>
                         </ul>
                     </li>
@@ -104,7 +112,8 @@
             </article>
             <article class="card-article">
                 <a href="./products/individualProducts/homeSprayAluminium250ml.html">
-                    <img src="./images/images-home-sprays/home-spray-aluminium-250ml.png" alt="home-spray-aluminium-250ml">
+                    <img src="./images/images-home-sprays/home-spray-aluminium-250ml.png"
+                        alt="home-spray-aluminium-250ml">
                 </a>
                 <a href="./products/individualProducts/homeSprayAluminium250ml.html">
                     <h5 class="card-title"><span>Home Spray Aluminium 250ml</span></h5>
@@ -136,14 +145,14 @@
                 <button class="btn-agregar">Agregar al carrito</button>
             </article>
         </section>
-       
+
     </main>
 
     <footer class="justify-content-center py-4 merriweather-light" id="footer">
         <div class="container">
             <div class="d-flex justify-content-center row gap-3 gap-lg-0" id="container-elements">
                 <div class="col-12  col-md-5 col-lg-3">
-                    <h6 class="text-black merriweather-light " > NAVEGACIÓN </h6>
+                    <h6 class="text-black merriweather-light "> NAVEGACIÓN </h6>
                     <a href="contact.html+" class="text-decoration-none text-black" target="_blank"> Contacto </a>
                 </div>
 
@@ -166,8 +175,8 @@
 
                 <div class="col-12 col-md-5 col-lg-3 text-black">
                     <h6 class="text-black"> CONTACTANOS </h6>
-                    <p>  <span> </span><i class="bi bi-telephone"></i> 11-6441-3777 </p>
-                    <p>  <span> </span><i class="bi bi-envelope text-danger"></i> grupo19cac@gmail.com </p>
+                    <p> <span> </span><i class="bi bi-telephone"></i> 11-6441-3777 </p>
+                    <p> <span> </span><i class="bi bi-envelope text-danger"></i> grupo19cac@gmail.com </p>
                 </div>
 
                 <div class="col-12 col-md-5 col-lg-3">
