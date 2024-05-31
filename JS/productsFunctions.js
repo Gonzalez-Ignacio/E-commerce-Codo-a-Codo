@@ -27,8 +27,8 @@ const displayProducts = (productsToShow) => {
                 <img src="../../images/${product.img}" alt="${product.alt}">`+
                 containerNewProd
             +`</a>
-            <a href="../individualProducts/malmoCandle.html">
-                <h5>${product.productName}</h5>
+            <a href="../individualProducts/${product.link}">
+                <h5><span>${product.productName}</span></h5>
             </a>
             <p>$${product.price}</p>`+
             thereIsStock
@@ -48,34 +48,23 @@ if(containerProd.id === "allProducts"){
     displayProducts(productsCategory)
 }
 
-
-
-
+// filtrar productos por precio
 const filterPrice = document.querySelector(".form-filter")
-const buttonFilter = document.querySelector(".btn-price")
 
 filterPrice.addEventListener("submit", (event) => {
     event.preventDefault();
 
     const valueMinFilter = document.querySelector(".min-number-price").value;
     const valueMaxFilter = document.querySelector(".max-number-price").value;
-
+    let priceProd
+    let productsFilterPrice
     if(valueMinFilter != "" || valueMaxFilter != ""){
 
-        productsFilterPrice = productsCategory.filter(product => {
-            const priceProd = product.price.replace(".", "")
-
-            priceProd >= valueMinFilter && priceProd <= valueMaxFilter
-                
-            
+         productsFilterPrice = productsCategory.filter(product => {
+            priceProd = parseInt(product.price.replace(".", ""))
+            return (valueMinFilter <= priceProd || valueMinFilter == "") && (valueMaxFilter >= priceProd || valueMaxFilter == "")    
         })
+
         displayProducts(productsFilterPrice)
-
-        
     }
-        
-
-    
 })
-
-

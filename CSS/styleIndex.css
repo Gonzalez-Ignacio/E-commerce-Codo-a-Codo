@@ -94,12 +94,16 @@
     margin: 5px 0;
 }
 
+.card-article img:hover {
+    opacity: 0.8;
+}
+
 .card-article a h5 {
     font-size: 1.1rem;
 }
 
-.card-article img:hover {
-    opacity: 0.8;
+.card-article a h5 span:hover {
+    text-decoration: underline;
 }
 
 .card-article p {

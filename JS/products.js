@@ -179,7 +179,6 @@ const listOfProducts = [
         newArticle: 'no',
         stock: 'no'
     },
-    // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     {
         productName: "Home Spray Aluminium 250ml",
         price: '11.000',
