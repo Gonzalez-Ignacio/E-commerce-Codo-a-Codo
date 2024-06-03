@@ -40,8 +40,6 @@ function crearCards(
     $createDivContainerCard.classList.add("row");
     $createDivContainerCard.classList.add("mt-2");
     $createDivContainerCard.setAttribute("data-index", index);
-    // $createDivContainerCard.setAttribute("data-price", price);
-    // $createDivContainerCard.setAttribute("data-count", count);
 
     // Div contenedor de Imagen, titulo y botones sumar/restar
     $createDivProduct = document.createElement("div");
@@ -93,6 +91,7 @@ function crearCards(
     $createSpanCantidad = document.createElement("span");
     $createSpanCantidad.classList.add("span-cantidad-carrito");
     $createSpanCantidad.classList.add("px-1");
+    $createSpanCantidad.setAttribute("data-index", index);
     $createSpanCantidad.textContent = countProduct;
 
     $createButtonSumarCantidad = document.createElement("button");
@@ -129,27 +128,28 @@ function crearCards(
     $createDivContainerCardCantidad.appendChild($createButtonRestarCantidad);
     $createDivContainerCardCantidad.appendChild($createSpanCantidad);
     $createDivContainerCardCantidad.appendChild($createButtonSumarCantidad);
-
+    
     //Mostrar en Carrito
     document.querySelector("#carrito-card-container").appendChild($createDivContainerCard);
+    // Controlar botones de Sumar y Restar cantidad de productos
+    buttonsCarrito();
 }
+
+
 
 btnAgregar.forEach((button, index) => {
     button.addEventListener("click", () => {
         // Obtener link img
         const imgProduct = cards[index].querySelector(".card-article img").src;
-        console.log(imgProduct);
 
         //Obtener title
         const titleProduct =
-            cards[index].querySelector(".card-article h5").textContent;
-        console.log(titleProduct);
-
+        cards[index].querySelector(".card-article h5").textContent;
+        
         // Obtener Precio
         const priceProductText = cards[index].querySelector(".card-article p span").textContent;
         const priceProduct = parseInt(priceProductText.replace(/\D/g, ''));
-        console.log(priceProduct);
-
+        
         //Verificar que exista el producto
         const productExisting = carrito.findIndex(
             (product) => product.title === titleProduct
@@ -162,24 +162,22 @@ btnAgregar.forEach((button, index) => {
                 image: imgProduct,
                 title: titleProduct,
                 price: priceProduct,
-                count: 1,
+                count: 1
             });
 
-            //Buscar en el Carrito para pasar "product.count"
-            const product = carrito.find(
-                (product) => product.title === titleProduct
-            );
-            //Crear Cards
-            crearCards(
-                imgProduct,
-                titleProduct,
-                priceProduct,
-                product.count,
-                index
-            );
-            // Controlar botones de Sumar y Restar cantidad de productos
-            buttonsCarrito();
         }
+        //Buscar en el Carrito para pasar "product.count"
+        const product = carrito.find(
+            (product) => product.title === titleProduct
+        );
+        //Crear Cards
+        crearCards(
+            imgProduct,
+            titleProduct,
+            priceProduct,
+            product.count,
+            index
+        );
     });
 });
 
@@ -188,26 +186,29 @@ function buttonsCarrito() {
     const btnRestar = document.querySelectorAll(".btn-restar-carrito");
     const btnSumar = document.querySelectorAll(".btn-sumar-carrito");
     const cantidad = document.querySelectorAll(".span-cantidad-carrito");
-    const precio = document.querySelectorAll(".carrito-card-price");
-
-    btnRestar.forEach((btnRestarProducto, index) => {
-        btnRestarProducto.addEventListener("click", () => {
+    
+    btnRestar.forEach((btnRestarProducto) => {
+        btnRestarProducto.addEventListener("click", (e) => {
+            const index = e.target.nextElementSibling.getAttribute("data-index");
             if (carrito[index].count > 1) {
                 carrito[index].count--;
                 cantidad[index].textContent = carrito[index].count;
-                $createPrice.textContent =
-                    "$ " + carrito[index].price * carrito[index].count;
+
+                const $createPrice = document.querySelector(`[data-index="${index}"] .carrito-card-price`);
+                $createPrice.textContent = "$ " + carrito[index].price * carrito[index].count;
             }
         });
     });
 
-    btnSumar.forEach((btnSumarProducto, index) => {
-        btnSumarProducto.addEventListener("click", () => {
+    btnSumar.forEach((btnSumarProducto) => {
+        btnSumarProducto.addEventListener("click", (e) => {
+            const index = e.target.previousElementSibling.getAttribute("data-index");
             carrito[index].count++;
             cantidad[index].textContent = carrito[index].count;
-            $createPrice.textContent =
-                "$ " + carrito[index].price * carrito[index].count;
-            console.log("btn Sumar -->",cantidad[index].textContent);
+
+            const $createPrice = document.querySelector(`[data-index="${index}"] .carrito-card-price`);
+            $createPrice.textContent = "$ " + carrito[index].price * carrito[index].count;
+            console.log("btn Sumar -->", cantidad[index].textContent);
         });
     });
 
@@ -226,6 +227,7 @@ function buttonsCarrito() {
                 .forEach((card, newIndex) => {
                     card.setAttribute("data-index", newIndex);
                 });
+            
             // Volver a enlazar los eventos de los botones con los nuevos índices
             buttonsCarrito();
         });
