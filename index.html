@@ -24,18 +24,20 @@
 
 <body>
 <div class="banner-sup merriweather-light">GRUPO-19</div>
+<!-- Inicio Header -->
     <header>
-
         <nav>
             <div class="info-central">
+                <!-- buscador de la página -->
                 <form class="search">
                     <input type="search" name="buscar" id="buscar" autocomplete="on">
                     <button id="button-search" type="submit"><img src="./images/lupa.png" alt="lupa"></button>
                 </form>
-
+                <!-- logo principal de la pagina web -->
                 <div class="logo">
                     <a href="index.html"><img src="./images/logo_G-19-removebg-preview.png" alt="G-19"></a>
                 </div>
+                <!-- carrito de compras -->
                 <div class=carrito>
                     <button class="merriweather-light" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"
@@ -45,8 +47,8 @@
                         </span>Carrito
                     </button>
                     <ul class="sesion merriweather-light">
-                        <li><a id="nuevaCuenta" href="/signUp.html" target="_blank">Crear cuenta</a></li>
-                        <li><a id="iniciarSesion" href="/login.html" target="_blank">Iniciar sesión</a></li>
+                        <li><a id="nuevaCuenta" href="/signUp.html">Crear cuenta</a></li>
+                        <li><a id="iniciarSesion" href="/login.html">Iniciar sesión</a></li>
                     </ul>
                 </div>
                 <!-- Offcanvas menu inicio -->
@@ -71,33 +73,32 @@
                 <!-- Offcanvas menu fin -->
             </div>
             <hr>
+            <!-- menú de navegación -->
             <div class="menu-nav">
                 <ul class="menu-ul merriweather-light">
                     <li><a href="./index.html">Inicio</a></li>
-                    <li class="li-productos" id="menu-desplegable"><a href="./products/products.html"
-                            target="_blank">Productos</a>
+                    <li class="li-productos" id="menu-desplegable"><a href="./products/products.html">Productos</a>
                         <ul class="menu-productos">
-                            <li class="menu-productos-li"><a href="./products/candles/candles.html"
-                                    target="_blank">Velas</a></li>
-                            <li class="menu-productos-li"><a href="./products/diffusers/diffusers.html"
-                                    target="_blank">Difusores</a>
+                            <li class="menu-productos-li"><a href="./products/candles/candles.html">Velas</a></li>
+                            <li class="menu-productos-li"><a href="./products/diffusers/diffusers.html">Difusores</a>
                             </li>
-                            <li class="menu-productos-li"><a href="./products/homeSpray/homeSpray.html"
-                                    target="_blank">Home
-                                    Spray</a></li>
+                            <li class="menu-productos-li"><a href="./products/homeSpray/homeSpray.html">Home Spray</a></li>
                         </ul>
                     </li>
-                    <li><a href="./contact.html" target="_blank">Contacto</a></li>
+                    <li><a href="./contact.html">Contacto</a></li>
                 </ul>
             </div>
             <hr>
         </nav>
     </header>
+    <!-- Fin Header -->
+    
+    <!-- Inicio Main -->
     <main>
         <section class="banner">
-            <img src="./images/imagenes_carrousel/imagen_6.png" alt="imagen1">
-            <img src="./images/imagenes_carrousel/imagen_5.png" alt="imagen2">
-            <img src="./images/imagenes_carrousel/imagen_4.png" alt="imagen3">
+            <img src="./images/imagenes_carrousel/imagen_1.png" alt="imagen1">
+            <img src="./images/imagenes_carrousel/imagen_2.png" alt="imagen2">
+            <img src="./images/imagenes_carrousel/imagen_3.png" alt="imagen3">
         </section>
         <section class="cards merriweather-light">
             <article class="card-article" id="card-1">
@@ -145,17 +146,19 @@
                 <button class="btn-agregar">Agregar al carrito</button>
             </article>
         </section>
-
     </main>
+    <!-- Fin Main -->
 
+    <!-- Inicio Footer -->
     <footer class="justify-content-center py-4 merriweather-light" id="footer">
         <div class="container">
             <div class="d-flex justify-content-center row gap-3 gap-lg-0" id="container-elements">
+                <!-- ir a formulario de contacto -->
                 <div class="col-12  col-md-5 col-lg-3">
                     <h6 class="text-black merriweather-light "> NAVEGACIÓN </h6>
-                    <a href="contact.html+" class="text-decoration-none text-black" target="_blank"> Contacto </a>
+                    <a href="contact.html" class="text-decoration-none text-black"> Contacto </a>
                 </div>
-
+                <!-- medios de pago -->
                 <div class="col-12 col-md-5 col-lg-3">
                     <h6 class="text-black merriweather-light"> MEDIOS DE PAGO </h6>
                     <div>
@@ -172,13 +175,13 @@
                             class="payment-methods">
                     </div>
                 </div>
-
+                <!-- contactos directos del sitio -->
                 <div class="col-12 col-md-5 col-lg-3 text-black">
                     <h6 class="text-black merriweather-light"> CONTACTANOS </h6>
                     <p> <span> </span><i class="bi bi-telephone"></i> 11-6441-3777 </p>
                     <p> <span> </span><i class="bi bi-envelope text-danger"></i> grupo19cac@gmail.com </p>
                 </div>
-
+                <!-- redes sociales -->
                 <div class="col-12 col-md-5 col-lg-3">
                     <h6 class="text-black merriweather-light"> REDES SOCIALES </h6>
                     <div class="d-flex align-items-center">
@@ -260,7 +263,8 @@
             </div>
         </div>
     </footer>
-
+    <!-- Fin Footer -->
+    
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
         crossorigin="anonymous"></script>

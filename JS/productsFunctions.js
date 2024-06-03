@@ -1,11 +1,15 @@
+const containerProducts = document.querySelector("section.products")
+
 //funcion que muestra los productos que estan dentro de un array específico
 const displayProducts = (productsToShow) => {
-    const shopContent = document.querySelector("section.products")
-    shopContent.innerHTML = ""
+    containerProducts.innerHTML = ""
     productsToShow.forEach(product => {
         let classNewProd = ''
         let containerNewProd = ''
         let thereIsStock
+        let linkProduct
+
+        // comprueba si el articulo es nuevo o no, y si lo es, agrega contenido en el InnerHTML
         if(product.newArticle == 'si'){
             classNewProd = 'class="new-product"'
             containerNewProd = `
@@ -14,37 +18,48 @@ const displayProducts = (productsToShow) => {
                 </div>
             `
         }
+
+        // dependiendo si hay stock del producto, agrega contenido diferente en el InnerHTML
         if(product.stock == 'si'){
             thereIsStock = '<button type="submit">Agregar al carrito</button>'
         }else{
             thereIsStock = '<div class="exhausted">SIN STOCK</div>'
         }
 
+        // las cards de los productos acceden a los productos individuales con el link que le corresponde
+        if(containerProducts.id === "allProducts"){
+            linkProduct = "."+product.link
+        }else{
+            linkProduct = ".."+product.link
+        }
+
         const div = document.createElement("article")
         div.className = 'card-item'
+
+        // carga en la página actual la estructura completa de cada producto que corresponde mostrar
         div.innerHTML = `
-            <a `+classNewProd+` href="../individualProducts/${product.link}">
+            <a `+classNewProd+` href="`+linkProduct+`">
                 <img src="../../images/${product.img}" alt="${product.alt}">`+
                 containerNewProd
             +`</a>
-            <a href="../individualProducts/${product.link}">
+            <a href="..product.link">
                 <h5><span>${product.productName}</span></h5>
             </a>
             <p>$${product.price}</p>`+
             thereIsStock
-            
-        
-        shopContent.append(div)
+
+
+            containerProducts.append(div)
     })
 }
+
 // mostrar todos los productos o filtrarlos por categoria
-const containerProd = document.querySelector("section.products")
 let productsCategory
-if(containerProd.id === "allProducts"){
+if(containerProducts.id === "allProducts"){
     productsCategory = listOfProducts
     displayProducts(productsCategory)
 }else{
-    productsCategory = listOfProducts.filter(product => product.category === containerProd.id)
+    productsCategory = listOfProducts.filter(product => product.category === containerProducts.id)
     displayProducts(productsCategory)
 }
 
@@ -62,9 +77,88 @@ filterPrice.addEventListener("submit", (event) => {
 
          productsFilterPrice = productsCategory.filter(product => {
             priceProd = parseInt(product.price.replace(".", ""))
-            return (valueMinFilter <= priceProd || valueMinFilter == "") && (valueMaxFilter >= priceProd || valueMaxFilter == "")    
+            return (valueMinFilter <= priceProd || valueMinFilter == "") && (valueMaxFilter >= priceProd || valueMaxFilter == "")
         })
-
         displayProducts(productsFilterPrice)
+    }
+})
+
+// ordena los productos dependiendo el tipo de orden seleccionado
+const sortProducts = document.getElementById("sort")
+
+sortProducts.addEventListener("change", (event) => {
+    
+    let orderProducts = productsCategory.slice()
+
+    switch (event.target.value){
+
+        case "price-ascending":
+            
+            orderProducts.sort((a, b) => {
+                let aInt = parseInt(a.price.replace(".", ""))
+                let bInt = parseInt(b.price.replace(".", ""))
+                
+                if (aInt < bInt) {
+                    return -1
+                }
+                if (aInt > bInt) {
+                    return 1
+                }
+                return 0
+            })
+            displayProducts(orderProducts)
+            break
+        
+        case "price-descending":
+            
+            orderProducts.sort((a, b) => {
+                let aInt = parseInt(a.price.replace(".", ""))
+                let bInt = parseInt(b.price.replace(".", ""))
+                
+                if (aInt < bInt) {
+                    return 1
+                }
+                if (aInt > bInt) {
+                    return -1
+                }
+                return 0
+            })
+            displayProducts(orderProducts)
+            break
+        
+        case "name-ascending":
+            
+            orderProducts.sort((a, b) => {
+                
+                if (a.productName < b.productName) {
+                    return -1
+                }
+                if (a.productName > b.productName) {
+                    return 1
+                }
+                return 0
+            })
+            displayProducts(orderProducts)
+            break
+        
+        case "name-descending":
+            
+            orderProducts.sort((a, b) => {
+                    
+                if (a.productName < b.productName) {
+                    return 1
+                }
+                if (a.productName > b.productName) {
+                    return -1
+                }
+                return 0
+            })
+            displayProducts(orderProducts)
+            break
+        
+        case "user":
+            
+            displayProducts(productsCategory)
+            break
     }
 })
