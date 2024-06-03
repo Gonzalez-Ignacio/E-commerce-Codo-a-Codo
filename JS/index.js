@@ -1,5 +1,5 @@
 const botonBusqueda = document.getElementById("button-search");
-const sugerencias = ["velas", "home-spray", "difusores"];
+const sugerencias = ["velas", "homespray", "difusores"];
 
 // Search
 function mostrarBusqueda(event) {

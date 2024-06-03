@@ -24,6 +24,11 @@ body {
 
 /* Fin Boton + Disabled */
 
+.banner-sup{
+    background-color: navajowhite;
+    text-align: center;
+    display: none;
+}
 
 /* Header */
 .merriweather-light {
@@ -132,12 +137,12 @@ ul {
 
 .carrito button {
     width: 100%;
-    font-size: 14px;
+    font-size: 18px;
     background-color: rgb(228, 222, 222);
     font-weight: 300;
     border: none;
 
-    height: 25px;
+    height: 30px;
     margin: 0%;
     font-weight: 500;
     padding: .2rem 0 .35rem 0;
@@ -204,7 +209,7 @@ ul {
 
 .sesion li a {
     text-decoration: none;
-    font-size: 12px;
+    font-size: 14px;
     color: #424242;
 }
 
@@ -243,7 +248,7 @@ hr {
 .menu-nav li a {
     color: #424242;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 18px;
     width: 100%;
 }
 
@@ -289,6 +294,9 @@ hr {
 
 /*navar 320px a 576px*/
 @media (min-width:320px) and (max-width:576px) {
+.banner-sup{
+    display: block;
+}
 
     .merriweather-light {
         font-family: "Merriweather", serif;
@@ -353,6 +361,12 @@ hr {
         align-items: center;
         justify-content: center;
     }
+    .carrito button{
+        font-size: 14px;
+    }
+    .sesion li a {
+        font-size: 12px;}
+
 
     /*opciones de navegacion*/
 
@@ -373,6 +387,8 @@ hr {
 
 }
 @media (min-width:577px) and (max-width:768px) {
+   
+    
     .merriweather-light {
         font-family: "Merriweather", serif;
         font-weight: 400;
@@ -435,6 +451,9 @@ hr {
         flex-direction: column;
         align-items: center;
         justify-content: center;
+    }
+    .carrito button{
+        font-size: 15px;
     }
 
     /*opciones de navegacion*/
@@ -516,13 +535,16 @@ hr {
         align-items: center;
         justify-content: center;
     }
+    .carrito button{
+        font-size: 16px;
+    }
 
     /*opciones de navegacion*/
 
     .menu-nav li a {
         color: #424242;
         text-decoration: none;
-        font-size: 14px;
+        font-size: 16px;
         width: 100%;
     }
 
