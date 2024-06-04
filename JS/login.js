@@ -15,7 +15,10 @@ iniciarSesion.addEventListener("submit", (event) => {
         if (usuario === "admin" && pass === "admin") {
             inicioExitoso.style.display = "block";
             dataError.style.display = "none";
-            console.log("Usuario y contraseña correctos:", usuario, pass);
+            // Redirigir al usuario a la pagina de index
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 4000);
         } else {
             inicioExitoso.style.display = "none";
             dataError.style.display = "block";
