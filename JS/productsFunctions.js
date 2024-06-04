@@ -21,7 +21,7 @@ const displayProducts = (productsToShow) => {
 
         // dependiendo si hay stock del producto, agrega contenido diferente en el InnerHTML
         if(product.stock == 'si'){
-            thereIsStock = '<button type="submit">Agregar al carrito</button>'
+            thereIsStock = '<button type="submit" class="btn-agregar">Agregar al carrito</button>'
         }else{
             thereIsStock = '<div class="exhausted">SIN STOCK</div>'
         }
@@ -34,18 +34,18 @@ const displayProducts = (productsToShow) => {
         }
 
         const div = document.createElement("article")
-        div.className = 'card-item'
+        div.className = 'card-item cards'
 
         // carga en la página actual la estructura completa de cada producto que corresponde mostrar
         div.innerHTML = `
             <a `+classNewProd+` href="`+linkProduct+`">
-                <img src="../../images/${product.img}" alt="${product.alt}">`+
+                <img src="../../images/${product.img}" alt="${product.alt}" class="main-image-product" >`+
                 containerNewProd
             +`</a>
             <a href="..product.link">
-                <h5><span>${product.productName}</span></h5>
+                <h5 class="card-title"><span>${product.productName}</span></h5>
             </a>
-            <p>$${product.price}</p>`+
+            <p class="product-price">$${product.price}</p>`+
             thereIsStock
 
 

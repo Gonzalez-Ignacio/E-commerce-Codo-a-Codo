@@ -54,7 +54,7 @@
 
 /*que las cards sean en formato grid*/
 
-.cards {
+.cards-container {
     width: 90%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -125,7 +125,7 @@
 /*card 320px a 576px*/
 @media (min-width:320px) and (max-width:576px) {
 
-    .cards {
+    .cards-container {
         width: 90%;
         display: grid;
         grid-template-rows: 12rem;
@@ -192,7 +192,7 @@
     }
 }
 @media (min-width:577px) and (max-width:768px) {
-    .cards {
+    .cards-container {
         width: 90%;
         display: grid;
         grid-template-rows: 15rem;
@@ -257,7 +257,7 @@
 
 }
 @media (min-width:769px) and (max-width:1024px) {
-    .cards {
+    .cards-container {
         width: 90%;
         display: grid;
         grid-template-rows: 14rem;

@@ -23,7 +23,7 @@ function mostrarBusqueda(event) {
 botonBusqueda.addEventListener("click", mostrarBusqueda);
 
 // OffCanvas
-const cards = document.querySelectorAll(".card-article");
+const cards = document.querySelectorAll(".cards");
 const btnAgregar = document.querySelectorAll(".btn-agregar");
 const carrito = [];
 
@@ -140,14 +140,14 @@ function crearCards(
 btnAgregar.forEach((button, index) => {
     button.addEventListener("click", () => {
         // Obtener link img
-        const imgProduct = cards[index].querySelector(".card-article img").src;
+        const imgProduct = cards[index].querySelector(".cards .main-image-product").src;
 
         //Obtener title
         const titleProduct =
-        cards[index].querySelector(".card-article h5").textContent;
+        cards[index].querySelector(".cards .card-title").textContent;
         
         // Obtener Precio
-        const priceProductText = cards[index].querySelector(".card-article p span").textContent;
+        const priceProductText = cards[index].querySelector(".cards .product-price").textContent;
         const priceProduct = parseInt(priceProductText.replace(/\D/g, ''));
         
         //Verificar que exista el producto
