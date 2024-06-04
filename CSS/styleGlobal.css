@@ -61,9 +61,6 @@ ul {
     width: 80%;
     height: 12rem;
     margin: auto;
-    animation: reduce-header linear both;
-    animation-timeline: scroll(root);
-    animation-range: 0 200px;
 }
 
 .logo {
@@ -81,9 +78,6 @@ ul {
 .logo a {
     width: 90%;
     height: 100%;
-    animation: shrink-logo linear both;
-    animation-timeline: scroll(root);
-    animation-range: 0 200px;
 }
 
 .logo a img {
@@ -91,18 +85,6 @@ ul {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-@keyframes shrink-logo {
-    to {
-        width: 60%;
-    }
-}
-
-@keyframes reduce-header {
-    to {
-        height: 8rem;
-    }
 }
 
 .search {
