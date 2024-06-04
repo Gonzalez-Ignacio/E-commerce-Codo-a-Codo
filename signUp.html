@@ -25,24 +25,49 @@
         <header>
             <nav>
                 <div class="info-central">
+                    <!-- buscador de la página -->
                     <form class="search">
-                        <input type="search" name="buscar" id="buscar">
-                        <button id="button-search" onclick="search()" type="submit"><img src="./images/lupa.png"
-                                alt="lupa"></button>
+                        <input type="search" name="buscar" id="buscar" autocomplete="on">
+                        <button id="button-search" type="submit"><img src="./images/lupa.png" alt="lupa"></button>
                     </form>
-    
+                    <!-- logo principal de la pagina web -->
                     <div class="logo">
                         <a href="index.html"><img src="./images/logo_G-19-removebg-preview.png" alt="G-19"></a>
                     </div>
+                    <!-- carrito de compras -->
                     <div class=carrito>
-                        <button class="merriweather-light" type="button" id="carrito-button">
-                            <span><img class="carrito-img" src="./images/carrito-de-compras.png"
-                                    alt="carrito-img"></span>Carrito</button>
+                        <button class="merriweather-light" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"
+                            id="carrito-button">
+                            <span>
+                                <img class="carrito-img" src="./images/carrito-de-compras.png" alt="carrito-img">
+                            </span>Carrito
+                        </button>
                         <ul class="sesion merriweather-light">
                             <li><a id="nuevaCuenta" href="/signUp.html">Crear cuenta</a></li>
-                            <li><a id="iniciarSesion" href="/login.html">Iniciar sesion</a></li>
+                            <li><a id="iniciarSesion" href="/login.html">Iniciar sesión</a></li>
                         </ul>
                     </div>
+                    <!-- Offcanvas menu inicio -->
+                    <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+                        aria-labelledby="offcanvasWithBothOptionsLabel">
+                        <div class="offcanvas-header">
+                            <h4 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">CARRITO DE COMPRAS</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <!-- Titulos -->
+                        <div class="offcanvas-body">
+                            <div class="offcanvas-title">
+                                <span>PRODUCTO</span>
+                                <span>SUBTOTAL</span>
+                            </div>
+                            <div id="carrito-card-container">
+                                <!-- Se agrega contenido con JS -->
+                            </div>
+                        </div>
+                        <!-- Cards -->
+                    </div>
+                    <!-- Offcanvas menu fin -->
                 </div>
                 <hr>
                 <div class="menu-nav">

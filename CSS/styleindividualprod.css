@@ -3,6 +3,7 @@
     padding: 0%;
 }
 
+/* contenedor principal de la pagina */
 .main-container-product{
     display: grid;
     grid-template-columns: 5fr 4fr;
@@ -14,6 +15,7 @@
     margin: 30px auto;
 }
 
+/* imagen del producto */
 .image-product {
     text-align: center;
     grid-area: img;
@@ -28,6 +30,7 @@
     width: 100%;
 }
 
+/* etiqueta de nuevo producto */
 .new-product-indv{
     position: relative;
 }
@@ -43,6 +46,7 @@
     font-size: 1rem;
 }
 
+/* descripcion del producto */
 .description-product{
     text-align: start;
     margin-top: 3rem;
@@ -68,6 +72,7 @@
     display: inline-block;
 }
 
+/* contenedor de precio y medios de pago */
 .product-form-container{
     display: flex;
     flex-direction: column;
@@ -155,13 +160,14 @@
     font-weight: 500;
 }
 
+/* 992px a 1249px */
 @media (min-width: 992px) and (max-width: 1249px){
     .main-container-product{
         width: 992px;
     }
 }
-    
 
+/* 768px a 991px */
 @media only screen and (min-width: 768px) and (max-width:991px){
     .main-container-product{
         width: 768px;
@@ -171,7 +177,7 @@
         width: 100%;
     }
 }
-
+/* hasta 767px */
 @media only screen and (max-width:767px){
     .main-container-product{
         display: flex;
@@ -210,6 +216,7 @@
     }
 }
 
+/* hasta 550 */
 @media only screen and (max-width:500px){
     .product-quotas{
         width: 95%;
