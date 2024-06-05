@@ -8,6 +8,7 @@ const displayProducts = (productsToShow) => {
         let containerNewProd = ''
         let thereIsStock
         let linkProduct
+        let linkImage
 
         // comprueba si el articulo es nuevo o no, y si lo es, agrega contenido en el InnerHTML
         if(product.newArticle == 'si'){
@@ -33,13 +34,20 @@ const displayProducts = (productsToShow) => {
             linkProduct = ".."+product.link
         }
 
+        // las cards acceden a la imagen del producto que le corresponde 
+        if(containerProducts.id === "allProducts"){
+            linkImage = "../images/"+product.img
+        }else{
+            linkImage = "../../images/"+product.img
+        }
+
         const div = document.createElement("article")
         div.className = 'card-item cards'
 
         // carga en la página actual la estructura completa de cada producto que corresponde mostrar
         div.innerHTML = `
             <a `+classNewProd+` href="`+linkProduct+`">
-                <img src="../../images/${product.img}" alt="${product.alt}" class="main-image-product" >`+
+                <img src="`+linkImage+`" alt="${product.alt}" class="main-image-product" >`+
                 containerNewProd
             +`</a>
             <a href="..product.link">
