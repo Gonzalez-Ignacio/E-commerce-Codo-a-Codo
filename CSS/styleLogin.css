@@ -11,7 +11,7 @@
 }
 .fondo::before{
     content: "";
-    background-image: url(/images/background-image.webp);
+    background-image: url(../images/background-image.webp);
     background-size:cover;
     position: absolute;
     top:0%;

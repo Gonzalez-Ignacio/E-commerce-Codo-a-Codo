@@ -13,7 +13,7 @@
 }
 .fondo::before{
     content: "";
-    background-image: url(/images/background-image.webp);
+    background-image: url(../images/background-image.webp);
     background-size:cover;
     position: absolute;
     top:0%;
@@ -24,7 +24,7 @@
     opacity: 0.4;
     filter: blur(10px);
    
-}
+}images/background-image.webp
 #menu-desplegable {
     text-align: center;
 }
