@@ -19,3 +19,26 @@ document.getElementById('formregistro').addEventListener('submit', function(even
         mensajeExitoso.style.display = 'none';
     }
 });
+
+/////////////////////////////////////////////
+const url = 'http://localhost:3000';
+
+document.getElementById('formregistro').addEventListener('submit', (event) => {
+    event.preventDefault();
+    const username = document.getElementById('usuario').value;
+    const password = document.getElementById('pass').value;
+    const email = document.getElementById('mail').value;
+
+    fetch(`${url}/usuarios`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({username,password,email})
+    })
+    .then(response => response.json())
+    .then(() => {
+        document.getElementById('formregistro').reset();
+    });
+});
+
