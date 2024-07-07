@@ -22,223 +22,210 @@ function mostrarBusqueda(event) {
 
 botonBusqueda.addEventListener("click", mostrarBusqueda);
 
-// OffCanvas
+// OFFCANVAS
 const cards = document.querySelectorAll(".cards");
 const btnAgregar = document.querySelectorAll(".btn-agregar");
 const carrito = [];
+let precioTodosProductos = 0;
 
-function crearCards(
-    imgProduct,
-    titleProduct,
-    priceProduct,
-    countProduct,
-    index
-) {
-    // Div Contenedor de Card
-    const $createDivContainerCard = document.createElement("div");
-    $createDivContainerCard.classList.add("cards-carrito-container");
-    $createDivContainerCard.classList.add("row");
-    $createDivContainerCard.classList.add("mt-2");
-    $createDivContainerCard.setAttribute("data-index", index);
+// Iterar en cada botón de las cards
+btnAgregar.forEach((boton, index) => {
+    boton.addEventListener("click", () => {
+        // Obtener Link de imagen
+        const imgCard = cards[index].querySelector(".main-image-product").src;
+        const imagenProduct = imgCard;
+        console.log(imagenProduct);
 
-    // Div contenedor de Imagen, titulo y botones sumar/restar
-    $createDivProduct = document.createElement("div");
-    $createDivProduct.classList.add("row");
-    $createDivProduct.classList.add("col-7");
+        // Obtener Título
+        const titleCard = cards[index].querySelector(".card-title span");
+        const titleProduct = titleCard.textContent;
+        console.log(titleProduct);
 
-
-    $createDivImg = document.createElement("div");
-    $createDivImg.classList.add("col-4");
-
-    $createDivTitleCount = document.createElement("div");
-    $createDivTitleCount.classList.add("col-8");
-
-
-    //Div contenedor de Boton Eliminar y Precio
-    $createDivSubTotal = document.createElement("div");
-    $createDivSubTotal.classList.add("row");
-    $createDivSubTotal.classList.add("col-5");
-
-    $createDivPrice = document.createElement("div");
-    $createDivPrice.classList.add("col-9");
-    
-    $createDivBtnEliminar = document.createElement("div");
-    $createDivBtnEliminar.classList.add("col-3");
-
-
-    // Img
-    $createImg = document.createElement("img");
-    $createImg.classList.add("carrito-card-img");
-    $createImg.setAttribute("src", imgProduct);
-    // Title
-    $createTitle = document.createElement("h5");
-    $createTitle.classList.add("carrito-card-title");
-    $createTitle.textContent = titleProduct;
-    // Price
-    $createPrice = document.createElement("p");
-    $createPrice.classList.add("carrito-card-price");
-    $createPrice.textContent = "$ " + priceProduct;
-    // Count
-    $createDivContainerCardCantidad = document.createElement("div");
-    $createDivContainerCardCantidad.classList.add("carrito-card-count");
-    $createDivContainerCardCantidad.classList.add("text-center");
-
-
-    $createButtonRestarCantidad = document.createElement("button");
-    $createButtonRestarCantidad.classList.add("btn-restar-carrito");
-    $createButtonRestarCantidad.textContent = "-";
-
-    $createSpanCantidad = document.createElement("span");
-    $createSpanCantidad.classList.add("span-cantidad-carrito");
-    $createSpanCantidad.classList.add("px-1");
-    $createSpanCantidad.setAttribute("data-index", index);
-    $createSpanCantidad.textContent = countProduct;
-
-    $createButtonSumarCantidad = document.createElement("button");
-    $createButtonSumarCantidad.classList.add("btn-sumar-carrito");
-    $createButtonSumarCantidad.textContent = "+";
-
-    //Agregar boton Eliminar
-    $createButtonEliminar = document.createElement("button");
-    $createButtonEliminar.classList.add("btn-eliminar-carrito");
-    $createButtonEliminar.innerHTML = '<i class="bi bi-trash"></i>';
-
-    //Agregar items al Div del carrito
-    $createDivContainerCard.appendChild($createDivProduct);
-    $createDivContainerCard.appendChild($createDivSubTotal);
-    
-    //Agregar imagen, title, price y count
-    $createDivProduct.appendChild($createDivImg);
-    $createDivProduct.appendChild($createDivTitleCount);
-
-    $createDivImg.appendChild($createImg);
-    $createDivTitleCount.appendChild($createTitle);
-    $createDivTitleCount.appendChild($createDivContainerCardCantidad);
-    // $createDivContainerCard.appendChild($createDivProduct);
-    
-    //Agregar BotonEliminar a respectivo Div
-    $createDivSubTotal.appendChild($createDivPrice);
-    $createDivSubTotal.appendChild($createDivBtnEliminar);
-    
-    $createDivPrice.appendChild($createPrice);
-    $createDivBtnEliminar.appendChild($createButtonEliminar);
-    
-
-    // Agregar items al Div de "Cantidad"
-    $createDivContainerCardCantidad.appendChild($createButtonRestarCantidad);
-    $createDivContainerCardCantidad.appendChild($createSpanCantidad);
-    $createDivContainerCardCantidad.appendChild($createButtonSumarCantidad);
-    
-    //Mostrar en Carrito
-    document.querySelector("#carrito-card-container").appendChild($createDivContainerCard);
-    // Controlar botones de Sumar y Restar cantidad de productos
-    buttonsCarrito();
-}
-
-
-
-btnAgregar.forEach((button, index) => {
-    button.addEventListener("click", () => {
-        // Obtener link img
-        const imgProduct = cards[index].querySelector(".cards .main-image-product").src;
-
-        //Obtener title
-        const titleProduct =
-        cards[index].querySelector(".cards .card-title").textContent;
-        
         // Obtener Precio
-        const priceProductText = cards[index].querySelector(".cards .product-price").textContent;
-        const priceProduct = parseInt(priceProductText.replace(/\D/g, ''));
-        
-        //Verificar que exista el producto
-        const productExisting = carrito.findIndex(
-            (product) => product.title === titleProduct
-        );
-        if (productExisting !== -1) {
-            // Mostrar offCanvas si el producto ya existe
-            mostrarOffcanvas();
-        } else {
-            carrito.push({
-                image: imgProduct,
-                title: titleProduct,
-                price: priceProduct,
-                count: 1
-            });
+        const priceCardText = cards[index].querySelector(".product-price");
+        const priceText = priceCardText.textContent;
+        const priceProduct = parseInt(priceText.replace(/\D/g, ""));
+        console.log(priceProduct);
 
+        // Verificamos si el producto ya existe o no
+        const productExisting = carrito.findIndex(
+            (product) => product.titulo === titleProduct
+        );
+
+        if (productExisting !== -1) {
+            const amount = carrito[productExisting];
+            amount.cantidad++;
+        } else {
+            // Guardar los productos en el carrito
+            carrito.push({
+                imagen: imgCard,
+                titulo: titleProduct,
+                precio: priceProduct,
+                cantidad: 1,
+            });
         }
-        //Buscar en el Carrito para pasar "product.count"
-        const product = carrito.find(
-            (product) => product.title === titleProduct
-        );
-        //Crear Cards
-        crearCards(
-            imgProduct,
-            titleProduct,
-            priceProduct,
-            product.count,
-            index
-        );
+
+        // Eliminar o Agregar clase "fixed" para el botón de Comprar
+        claseDeBotonComprar();
+        // Agregar "div" Precio Total
+        agregarPrecioTotal();
+        // Llamar Función para renderizar las cards dentro del carrito de compras.
+        renderCard();
     });
 });
 
-function buttonsCarrito() {
-    // Boton Sumar y Restar cantidad de productos
-    const btnRestar = document.querySelectorAll(".btn-restar-carrito");
-    const btnSumar = document.querySelectorAll(".btn-sumar-carrito");
-    const cantidad = document.querySelectorAll(".span-cantidad-carrito");
-    
-    btnRestar.forEach((btnRestarProducto) => {
-        btnRestarProducto.addEventListener("click", (e) => {
-            const index = e.target.nextElementSibling.getAttribute("data-index");
-            if (carrito[index].count > 1) {
-                carrito[index].count--;
-                cantidad[index].textContent = carrito[index].count;
+// Div renderizado dentro del div vacío
+function renderCard() {
+    const cardProduct = carrito
+        .map(
+            (product) => `
+                <div class="container-carrito">
+                    <div class="columna-carrito">
+                        <img class="imagen-producto" src="${product.imagen}">
+                    </div>
+                    <div class="columna-carrito">
+                        <div class="fila-carrito">
+                            <h3 class="titulo-producto">${product.titulo}</h3>
+                        </div>
+                        
+                        <div class="fila-carrito">
+                            <p class="precio-producto">${
+                                product.precio * product.cantidad
+                            }</p>
+                        </div>
+                        
+                        <div class="fila-carrito">
+                            <div id="carrito-cantidad">
+                                <button class="cantidad-restar">-</button>
+                                <span class="cantidad-producto">${
+                                    product.cantidad
+                                }</span>
+                                <button class="cantidad-sumar">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="">
+                        <img class="imagen-eliminar" src="https://cdn-icons-png.flaticon.com/512/1214/1214594.png">
+                    </div>
+                </div>
+            `
+        )
+        .join("");
+    // Renderizar el producto dentro del div vacío
+    const productEat = document.querySelector(".producto-comida");
+    productEat.innerHTML = cardProduct;
 
-                const $createPrice = document.querySelector(`[data-index="${index}"] .carrito-card-price`);
-                $createPrice.textContent = "$ " + carrito[index].price * carrito[index].count;
+    // Llamar botón de restar y sumar la cantidad de productos
+    const btnRestar = document.querySelectorAll(".cantidad-restar");
+    const btnSumar = document.querySelectorAll(".cantidad-sumar");
+    const btnEliminar = document.querySelectorAll(".imagen-eliminar");
+
+    // Restar Producto
+    btnRestar.forEach((btnRestarProducto, index) => {
+        btnRestarProducto.addEventListener("click", () => {
+            const amount =
+                document.querySelectorAll(".cantidad-producto")[index]; // [index] para que itere en todas las cards y no solo la primera
+            let amountProduct = parseInt(amount.textContent);
+            // Mientras que sea mayor a uno (para que el producto no diga "0")
+            if (amountProduct > 1) {
+                amountProduct--;
+                amount.textContent = amountProduct;
+                carrito[index].cantidad = amountProduct;
+                const precioTotalProducto =
+                    carrito[index].cantidad * carrito[index].precio;
+                // Actualiza el precio en el HTML
+                const precioElement =
+                    document.querySelectorAll(".precio-producto")[index];
+                precioElement.textContent = `$${precioTotalProducto}`;
+                agregarPrecioTotal();
             }
         });
     });
 
-    btnSumar.forEach((btnSumarProducto) => {
-        btnSumarProducto.addEventListener("click", (e) => {
-            const index = e.target.previousElementSibling.getAttribute("data-index");
-            carrito[index].count++;
-            cantidad[index].textContent = carrito[index].count;
-
-            const $createPrice = document.querySelector(`[data-index="${index}"] .carrito-card-price`);
-            $createPrice.textContent = "$ " + carrito[index].price * carrito[index].count;
-            console.log("btn Sumar -->", cantidad[index].textContent);
+    // Sumar Producto
+    btnSumar.forEach((btnSumaProducto, index) => {
+        btnSumaProducto.addEventListener("click", () => {
+            carrito[index].cantidad++;
+            const precioTotalProducto =
+                carrito[index].cantidad * carrito[index].precio;
+            // Actualiza el precio en el HTML
+            const priceRender =
+                document.querySelectorAll(".precio-producto")[index];
+            priceRender.textContent = `$${precioTotalProducto}`;
+            const amountRender =
+                document.querySelectorAll(".cantidad-producto")[index];
+            amountRender.textContent = carrito[index].cantidad;
+            agregarPrecioTotal();
         });
     });
 
-    // Eliminar Div Carrito
-    const btnEliminar = document.querySelectorAll(".btn-eliminar-carrito");
-    btnEliminar.forEach((btnEliminar, index) => {
-        btnEliminar.addEventListener("click", () => {
-            // Eliminar Div
-            const deleteElement = btnEliminar.closest(".cards-carrito-container");
+    // Eliminar Producto
+    btnEliminar.forEach((btnEliminarProducto, index) => {
+        btnEliminarProducto.addEventListener("click", () => {
+            // Eliminación de contenedor
+            const deleteElement =
+                document.querySelectorAll(".container-carrito")[index];
             deleteElement.remove();
-            // Eliminar de la lista Carrito
+            // Actualiza el carrito y el precio total
             carrito.splice(index, 1);
-            // Actualizar data-index de los elementos restantes
-            document
-                .querySelectorAll(".cards-carrito-container")
-                .forEach((card, newIndex) => {
-                    card.setAttribute("data-index", newIndex);
-                });
-            
-            // Volver a enlazar los eventos de los botones con los nuevos índices
-            buttonsCarrito();
+            agregarPrecioTotal();
+            claseDeBotonComprar();
         });
     });
+
+    // Actualizar clase del botón "Carrito de Compras Vacío"
+    claseDeBotonComprar();
 }
 
-function mostrarOffcanvas() {
-    // Mostrar Carrito de compras
-    const offcanvas = new bootstrap.Offcanvas(
-        document.getElementById("offcanvasWithBothOptions")
+// Guardar Precio Total
+function agregarPrecioTotal() {
+    const divPrecioTotal = document.getElementById("precio-total");
+    if (carrito.length > 0) {
+        precioTodosProductos = 0;
+
+        for (const productosTotal of carrito) {
+            precioTodosProductos += productosTotal.precio * productosTotal.cantidad
+        }
+        const renderPrecioTotal = () => {
+            return `
+            <div class="container-precio-total"> 
+                <span class="texto-precio-total"> Precio Total: </span>
+                <span class="precio-total"> $${precioTodosProductos} </span>
+            </div>
+            `
+        }
+        divPrecioTotal.innerHTML = renderPrecioTotal(precioTodosProductos)
+    } else {
+        divPrecioTotal.innerHTML = ""
+    }
+    renderCard()
+}
+
+// Eliminar o agregar clase de boton comprar
+function claseDeBotonComprar() {
+    const btnCarritoVacio = document.querySelector(".carrito-vacio");
+    if (carrito.length === 0) {
+        btnCarritoVacio.classList.remove("fixed");
+        btnCarritoVacio.classList.add("btn-carrito")
+        btnCarritoVacio.textContent = "Carrito de Compras Vacío"
+    } else {
+        btnCarritoVacio.classList.remove("btn-carrito")
+        btnCarritoVacio.classList.add("fixed");
+        btnCarritoVacio.textContent = "Finalizar Compra"
+    }
+}
+
+
+// Boton Comprar
+const comprarButton = document.querySelector(".carrito-vacio");
+comprarButton.addEventListener("click", () => {
+    const totalCompra = carrito.reduce(
+        (acc, product) => acc + product.precio * product.cantidad,
+        0
     );
-    offcanvas.show();
-}
 
+    if (totalCompra > 0) {
+        // fetch a tabla itemsPedidos
+        console.log("Probando")
+    }
+});
