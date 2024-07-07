@@ -1,0 +1,6 @@
+# Ignorar archivo SQL
+BD-Ecommerce-Cac2024.sql
+# Ignorar Node_modules
+node_modules
+# Ignorar .env (donde se guardan los datos de usuario y contrase de MySql)
+.env
