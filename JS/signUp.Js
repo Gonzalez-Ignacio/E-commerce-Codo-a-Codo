@@ -20,7 +20,6 @@ document.getElementById('formregistro').addEventListener('submit', function(even
     }
 });
 
-/////////////////////////////////////////////
 const url = 'http://localhost:3000';
 
 document.getElementById('formregistro').addEventListener('submit', (event) => {
@@ -41,4 +40,3 @@ document.getElementById('formregistro').addEventListener('submit', (event) => {
         document.getElementById('formregistro').reset();
     });
 });
-

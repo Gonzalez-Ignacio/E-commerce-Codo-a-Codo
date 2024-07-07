@@ -1,5 +1,74 @@
 const containerProducts = document.querySelector("section.products")
 
+const fetchProducts = () => {
+    fetch('http://localhost:3000/productos')
+        .then(response => response.json())
+        .then(data => {
+            const products = data.map(product => ({
+                productName: product.nombre,
+                price: product.precio.toLocaleString('es-ES'),
+                img: product.dirImagen,
+                link: product.link,
+                alt: product.nombre.toLowerCase().replace(' ', '-'),
+                category: product.categoria,
+                newArticle: product.nuevoArticulo,
+                stock: product.stock,
+            }));
+            return products;
+        })
+        .catch(error => {
+            console.error('Error al obtener los productos:', error);
+            throw error;
+        });
+};
+
+
+// function fetchProducts() {
+//     fetch('http://localhost:3000/productos')
+//       .then(response => response.json())
+//       .then(data => {
+//         const listOfProducts = data.map(product => ({
+//           productName: product.nombre,
+//           price: product.precio,
+//           img: `images-products/${product.imagen}`,
+//           link: `/individualProducts/${product.slug}`,
+//           alt: product.nombre.toLowerCase().replace(' ', '-'),
+//           category: product.categoria,
+//           newArticle: product.nuevo,
+//           stock: product.stock,
+//         }));
+//         return listOfProducts;
+//       })
+//       .catch(error => {
+//         console.error('Error al obtener productos:', error);
+//         return []; // Retornar un array vacío en caso de error
+//       });
+//   }
+const listOfProducts = fetchProducts();
+
+console.log(listOfProducts)
+
+// fetch('http://localhost:3000/productos')
+//   .then(response => response.json())
+//   .then(data => {
+//     listOfProducts.push(...data.map(product => ({
+//       productName: product.nombre,
+//       price: product.precio.toLocaleString('es-ES'),
+//       img: product.dirImagen,
+//       link: product.link,
+//       alt: product.nombre.toLowerCase().replace(' ', '-'),
+//       category: product.categoria,
+//       newArticle: product.nuevoArticulo,
+//       stock: product.stock,
+//     })));
+//     console.log(listOfProducts[0])
+//   })
+//   .catch(error => {
+//     console.error('Error al obtener productos:', error);
+//   });
+
+// console.log(listOfProducts[0])
+
 //funcion que muestra los productos que estan dentro de un array específico
 const displayProducts = (productsToShow) => {
     containerProducts.innerHTML = ""
