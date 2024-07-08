@@ -24,8 +24,8 @@ const url = 'http://localhost:3000';
 
 document.getElementById('formregistro').addEventListener('submit', (event) => {
     event.preventDefault();
-    const username = document.getElementById('usuario').value;
-    const password = document.getElementById('pass').value;
+    const nombreUsuario = document.getElementById('usuario').value;
+    const contraseña = document.getElementById('pass').value;
     const email = document.getElementById('mail').value;
 
     fetch(`${url}/usuarios`, {
@@ -33,7 +33,7 @@ document.getElementById('formregistro').addEventListener('submit', (event) => {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({username,password,email})
+        body: JSON.stringify({nombreUsuario,contraseña,email})
     })
     .then(response => response.json())
     .then(() => {

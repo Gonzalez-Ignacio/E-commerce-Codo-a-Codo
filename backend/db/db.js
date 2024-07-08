@@ -10,23 +10,23 @@ const connection = mySql.createConnection(
     }
 )
 
-connection.query('CREATE DATABASE IF NOT EXISTS `ecommerce-cac2024`', (err, result) => {
+connection.query('CREATE DATABASE IF NOT EXISTS ecommercecac2024', (err, result) => {
     if (err) {
         console.error("Error creando la base de datos", err);
         return
     }
     console.log("Base de datos creada exitosamente");
 
-    connection.changeUser({database: `ecommerce-cac2024`}, (err) => {
+    connection.changeUser({database: `ecommercecac2024`}, (err) => {
         if (err) {
-            console.error("Error al cambiar a `ecommerce-cac2024`", err);
+            console.error("Error al cambiar a `ecommercecac2024`", err);
             return;
         }
 
         const createTableQuery = `CREATE TABLE IF NOT EXISTS usuarios (
-            id INT AUTO_INCREMENT PRIMARY KEY,
-            userName VARCHAR(50) NOT NULL,
-            password VARCHAR(255) NOT NULL,
+            idUsuario INT AUTO_INCREMENT PRIMARY KEY,
+            nombreUsuario VARCHAR(50) NOT NULL,
+            contraseña VARCHAR(255) NOT NULL,
             email VARCHAR(100) NOT NULL
         )`;
         
