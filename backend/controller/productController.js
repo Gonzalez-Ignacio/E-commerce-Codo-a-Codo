@@ -1,7 +1,7 @@
 const db = require('../db/db.js');
 
 const ObtenerTodosLosProductos = (req, res) => {
-  const sql = "SELECT * FROM usuarios";
+  const sql = "SELECT * FROM productos";
 
   db.query(sql, (err, result) => {
     if (err) throw err;
@@ -11,7 +11,7 @@ const ObtenerTodosLosProductos = (req, res) => {
 
 const ObtenerProductoPorId = (req, res) => {
   const id = req.params.id;
-  const sql = "SELECT * FROM usuarios WHERE id = ?";
+  const sql = "SELECT * FROM productos WHERE id = ?";
 
   db.query(sql, [id], (err, result) => {
     if (err) throw err;
