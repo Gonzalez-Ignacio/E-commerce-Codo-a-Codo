@@ -24,7 +24,7 @@ botonBusqueda.addEventListener("click", mostrarBusqueda);
 
 // OFFCANVAS
 const cards = document.querySelectorAll(".cards");
-const btnAgregar = document.querySelectorAll(".btn-agregar");
+const btnAgregar = document.querySelectorAll(".cards .btn-agregar");
 const carrito = [];
 let precioTodosProductos = 0;
 
@@ -112,8 +112,8 @@ function renderCard() {
         )
         .join("");
     // Renderizar el producto dentro del div vacío
-    const productEat = document.querySelector(".producto-comida");
-    productEat.innerHTML = cardProduct;
+    const productItems = document.querySelector(".productos-items");
+    productItems.innerHTML = cardProduct;
 
     // Llamar botón de restar y sumar la cantidad de productos
     const btnRestar = document.querySelectorAll(".cantidad-restar");
@@ -208,10 +208,12 @@ function claseDeBotonComprar() {
         btnCarritoVacio.classList.remove("fixed");
         btnCarritoVacio.classList.add("btn-carrito")
         btnCarritoVacio.textContent = "Carrito de Compras Vacío"
+        btnCarritoVacio.disabled = true
     } else {
         btnCarritoVacio.classList.remove("btn-carrito")
         btnCarritoVacio.classList.add("fixed");
         btnCarritoVacio.textContent = "Finalizar Compra"
+        btnCarritoVacio.disabled = false
     }
 }
 
@@ -219,13 +221,46 @@ function claseDeBotonComprar() {
 // Boton Comprar
 const comprarButton = document.querySelector(".carrito-vacio");
 comprarButton.addEventListener("click", () => {
-    const totalCompra = carrito.reduce(
-        (acc, product) => acc + product.precio * product.cantidad,
-        0
-    );
+    if (carrito.length > 0) {
+        const nombreUsuario = 'Ignacio Gonzalez'    //Hay que cambiarlo con el ID del usuario
+        let importeTotal = 0
+        carrito.forEach((product) => {
+            importeTotal += product.precio * product.cantidad;
+        });
 
-    if (totalCompra > 0) {
-        // fetch a tabla itemsPedidos
-        console.log("Probando")
+        const data = {
+            nombreUsuario: nombreUsuario,
+            carrito: carrito.map((product, index) => ({
+                // idProducto: index + 1,       //El producto no esta cargado desde la base de datos, por lo que no tiene la ID correspondiente
+                nombreProducto: product.titulo, //Daremos el titulo para que en la base de datos busque el idProducto a través del nombre
+                cantidad: product.cantidad,
+                importePorProducto: product.precio * product.cantidad
+            })),
+            importeTotal: importeTotal
+        }
+
+        const URL = "http://localhost:3000/compras"
+        fetch(URL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                console.error("Error al realizar la compra:", data.mensaje);
+            } else {
+                console.log("Compra realizada con éxito", data);
+                // Limpiar el carrito de compras
+                carrito.length = 0;
+                agregarPrecioTotal();
+                claseDeBotonComprar();
+            }
+        })
+        .catch(error => {
+            console.error("Error al realizar la compra:", error);
+        })
     }
 });

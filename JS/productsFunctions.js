@@ -57,7 +57,7 @@ getProducts().then(() => {
 
             // dependiendo si hay stock del producto, agrega contenido diferente en el InnerHTML
             if (product.stock == 'si') {
-                thereIsStock = '<button type="submit" class="btn-agregar">Agregar al carrito</button>'
+                thereIsStock = '<button class="btn-agregar">Agregar al carrito</button>'
             } else {
                 thereIsStock = '<div class="exhausted">SIN STOCK</div>'
             }
