@@ -85,6 +85,19 @@
     -webkit-border-radius: 3px 3px 3px 3px;
 }
 
+.admin-user{
+    
+    display: flex;
+    align-items: baseline;
+    gap: .3rem;
+}
+
+.form input[type="checkbox"] {
+
+    width: 16px; 
+    height: 16px; 
+}
+
 .form button {
 
     font-size: 20px;
@@ -119,6 +132,12 @@
 
 .form .texto-inicio-exitoso {
     color: green;
+    display: none;
+    padding: 15px 0;
+}
+
+.form .texto-inicio-denegado {
+    color: red;
     display: none;
     padding: 15px 0;
 }

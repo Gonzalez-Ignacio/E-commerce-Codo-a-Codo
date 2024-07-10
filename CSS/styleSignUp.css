@@ -39,6 +39,11 @@
     justify-content: center;
 }
 
+.header-titulo {
+    color: #bba56ecc;
+    font-size: 2.5rem;
+}
+
 .p1{
     padding: 30px;
 }

@@ -105,12 +105,21 @@
                     <!-- Mensaje de error en caso de que este vació -->
                     <span class="texto-error" id="void-password-error">*Este campo es obligatorio</span>
                     
+                    <div class="admin-user">
+                        <input type="checkbox" name="tipoUsuario" value="administrador" id="userAdmin">
+                        <label for="userAdmin">Administrador</label>
+                    </div>
+
 
                     <button type="submit">Iniciar Sesión</button>
                     <!-- Mensaje de error en caso de que los datos sean incorrectos -->
                     <span class="texto-error" id="data-error">*Los datos son incorrectos</span>
-                    <!-- Mensaje de Éxito en caso de que los datos sean correctos -->
-                    <span class="texto-inicio-exitoso text-center" id="inicio-exitoso"> Has iniciado Sesión correctamente, seras redirigido a la pagina principal </span>
+                    <!-- Mensaje de Éxito en caso de que se loguea un usuario  -->
+                    <span class="texto-inicio-exitoso text-center" id="inicio-exitoso-user"> Has iniciado Sesión correctamente, seras redirigido a la pagina principal </span>
+                    <!-- Mensaje de Éxito en caso de que se loguea un administrador -->
+                    <span class="texto-inicio-exitoso text-center" id="inicio-exitoso-admin"> Has iniciado Sesión correctamente, seras redirigido a la pagina de administrador </span>
+                    <!-- Mensaje de acceso denegado para un usuario que no es administrador -->
+                    <span class="texto-inicio-denegado text-center" id="inicio-denegado"> El usuario ingresado no tiene permisos de administrador </span>
                 </form>
             </div>
         </main>

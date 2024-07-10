@@ -20,20 +20,23 @@ document.getElementById('formregistro').addEventListener('submit', function(even
     }
 });
 
-const url = 'http://localhost:3000';
+const tituloPrincipal = document.querySelector("h1");
 
+const url = 'http://localhost:3000';
+document.getElementById
 document.getElementById('formregistro').addEventListener('submit', (event) => {
     event.preventDefault();
     const nombreUsuario = document.getElementById('usuario').value;
     const contraseña = document.getElementById('pass').value;
     const email = document.getElementById('mail').value;
+    const adminUser = tituloPrincipal.textContent.trim() === "ADMINISTRADOR" ? 'si' : 'no'
 
     fetch(`${url}/usuarios`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({nombreUsuario,contraseña,email})
+        body: JSON.stringify({nombreUsuario,contraseña,email,adminUser})
     })
     .then(response => response.json())
     .then(() => {

@@ -23,11 +23,24 @@ const ObtenerUsuarioPorId = (req, res) => {
     });
 };
 
-const crearUsuario = (req, res) => {
-    const { nombreUsuario, contraseña, email } = req.body;
+const ObtenerUsuarioPorNombre = (req, res) => {
+    const { nombreUsuario } = req.params;
+    const sql = `SELECT * FROM usuarios WHERE nombreUsuario = ?`; // ? es el parámetro de la consulta ingresado por el usuario
 
-    const sql = `INSERT INTO usuarios (nombreUsuario, contraseña, email) VALUES (?, ?, ?)`;
-    db.query(sql, [nombreUsuario, contraseña, email], (err, result) => {
+    db.query(sql, [nombreUsuario], (err, result) => {
+        {
+            if (err) throw err;
+
+            res.json(result);
+        }
+    });
+};
+
+const crearUsuario = (req, res) => {
+    const { nombreUsuario, contraseña, email, adminUser } = req.body;
+
+    const sql = `INSERT INTO usuarios (nombreUsuario, contraseña, email, adminUser) VALUES (?, ?, ?, ?)`;
+    db.query(sql, [nombreUsuario, contraseña, email, adminUser], (err, result) => {
         if (err) throw err;
         res.json({
             mensaje: "Usuario creado exitosamente",
@@ -68,6 +81,7 @@ const BorrarUsuario = (req, res) => {
 module.exports = {
     ObtenerTodosLosUsuarios,
     ObtenerUsuarioPorId,
+    ObtenerUsuarioPorNombre,
     crearUsuario,
     ActualizarUsuario,
     BorrarUsuario,
