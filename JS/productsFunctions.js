@@ -1,3 +1,5 @@
+import { offcanvas } from './index.js';
+
 const containerProducts = document.querySelector("section.products")
 
 let listOfProducts = [];
@@ -94,6 +96,7 @@ getProducts().then(() => {
 
             containerProducts.append(div)
         })
+        offcanvas()
     }
 
     // mostrar todos los productos o filtrarlos por categoria

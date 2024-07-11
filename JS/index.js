@@ -22,9 +22,11 @@ function mostrarBusqueda(event) {
 
 botonBusqueda.addEventListener("click", mostrarBusqueda);
 
-// OFFCANVAS
+
+function offcanvas() {
+    // OFFCANVAS
 const cards = document.querySelectorAll(".cards");
-const btnAgregar = document.querySelectorAll(".cards .btn-agregar");
+const btnAgregar = document.querySelectorAll(".btn-agregar");
 const carrito = [];
 let precioTodosProductos = 0;
 
@@ -37,7 +39,7 @@ btnAgregar.forEach((boton, index) => {
         console.log(imagenProduct);
 
         // Obtener Título
-        const titleCard = cards[index].querySelector(".card-title span");
+        const titleCard = cards[index].querySelector(".card-title ");
         const titleProduct = titleCard.textContent;
         console.log(titleProduct);
 
@@ -264,3 +266,10 @@ comprarButton.addEventListener("click", () => {
         })
     }
 });
+}
+
+
+offcanvas()
+
+
+export { offcanvas };
