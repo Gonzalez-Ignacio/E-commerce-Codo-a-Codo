@@ -67,7 +67,7 @@ const ActualizarUsuario = (req, res) => {
 
 const BorrarUsuario = (req, res) => {
     const { id } = req.params;
-    const sql = "DELETE FROM usuarios WHERE idUsuarios = ?";
+    const sql = "DELETE FROM usuarios WHERE idUsuario = ?";
 
     db.query(sql, [id], (err, result) => {
         if (err) throw err;

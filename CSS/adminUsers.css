@@ -1,0 +1,83 @@
+.fondo{
+    height: auto;
+
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    width: 100%;
+    min-height: 400px;
+}
+
+.user-list {
+    width: 100%;
+}
+.user-list-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Para ocupar toda la altura del viewport */
+    text-align: center;
+}
+
+.no-users {
+    background-color: #ffcccc;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    display: inline-block;
+    font-size: 1.2em;
+}
+.user-item {
+    background-color: #e0e0e0;
+    margin: 10px auto;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    width: 80%;
+}
+
+.user-details {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.user-details span {
+    margin-right: 20px;
+}
+
+.user-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.update-button {
+    background-color: #d2b48c;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    margin-right: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-button {
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-button .delete-icon {
+    font-size: 1.2em;
+}

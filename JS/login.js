@@ -42,8 +42,7 @@ iniciarSesion.addEventListener("submit", (event) => {
                         dataError.style.display = "none";
                         // Redirigir al usuario a la pagina de administrador
                         setTimeout(() => {
-                            //cambiar la ruta!!!!
-                            window.location.href = "signUp.html";
+                            window.location.href = "adminUsers.html";
                         }, 4000);
 
                     } else {
