@@ -1,5 +1,21 @@
 const db = require("../db/db");
 
+const ObtenerTablaPedidos = (req, res) => {
+  const sqlTablaPedidos = "SELECT * FROM pedidos";
+  db.query(sqlTablaPedidos, (err, result) => {
+    if (err) throw err;
+    res.send(result);
+  })  
+};
+
+const ObtenerTablaItemPedidos = (req, res) => {
+    const sql = "SELECT * FROM itemPedidos";
+    db.query(sql, (err, result) => {
+        if (err) throw err;
+        res.send(result);
+    });
+};
+
 const realizarCompra = (req, res) => {
     const { nombreUsuario, carrito, importeTotal } = req.body;
 
@@ -85,5 +101,7 @@ const realizarCompra = (req, res) => {
 
 
 module.exports = {
+    ObtenerTablaPedidos,
+    ObtenerTablaItemPedidos,
     realizarCompra
 }
