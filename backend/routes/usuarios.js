@@ -4,8 +4,6 @@ const userController = require('../controller/userController');
 
 router.get('/', userController.ObtenerTodosLosUsuarios);
 router.get('/:id', userController.ObtenerUsuarioPorId);
-router.get('/nombre/:nombreUsuario', userController.ObtenerUsuarioPorNombre);
-router.post('/', userController.crearUsuario);
 router.put('/:id', userController.ActualizarUsuario);
 router.delete('/:id', userController.BorrarUsuario);
 

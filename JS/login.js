@@ -1,3 +1,5 @@
+const url = 'http://localhost:3000';
+
 const iniciarSesion = document.getElementById("form-iniciar-sesion");
 const inicioExitosoUser = document.getElementById("inicio-exitoso-user");
 const inicioExitosoAdmin = document.getElementById("inicio-exitoso-admin");
@@ -10,70 +12,81 @@ const dataError = document.getElementById("data-error");
 iniciarSesion.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    const usuario = document.getElementById("usuario").value;
-    const pass = document.getElementById("pass").value;
+    const nombreUsuario = document.getElementById("usuario").value;
+    const contraseña = document.getElementById("pass").value;
     const userAdmin = document.getElementById("userAdmin");
 
 
-    if (datosVacios(usuario, pass)) {
-        fetch(`http://localhost:3000/usuarios/nombre/${usuario}`)
-            .then(response => response.json())
-            .then(data => {
+    if (datosVacios(nombreUsuario, contraseña)) {
 
-                const user = data[0]
+        const options = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ nombreUsuario, contraseña }),
+        };
 
-                if (usuario === user.nombreUsuario && pass === user.contraseña) {
+        fetch(`${url}/auth/login`, options)
+            .then((response) => {
+                // Si no obtenemos respuesta...
+                if (!response.ok) {
+                    throw new Error("Error al iniciar sesión");
+                }
+                //Retornamos lo recibido desde el servidor
+                return response.json();
+            })
+            .then((data) => {
+                localStorage.setItem("token", data.token);
 
-                    //un usuario normal intenta entrar como administrador
-                    if (user.adminUser === 'no' && userAdmin.checked){
-                        inicioExitosoUser.style.display = "none";
-                        inicioExitosoAdmin.style.display = "none";
-                        inicioDenegado.style.display = "block";
-                        dataError.style.display = "none";
-                        setTimeout(() => {
-                            inicioDenegado.style.display = "none";
-                        }, 4000);
-                        
-                    }
-                    else if (user.adminUser === 'si' && userAdmin.checked) {
-                        inicioExitosoUser.style.display = "none";
-                        inicioExitosoAdmin.style.display = "block";
-                        inicioDenegado.style.display = "none";
-                        dataError.style.display = "none";
-                        // Redirigir al usuario a la pagina de administrador
-                        setTimeout(() => {
-                            window.location.href = "adminUsers.html";
-                        }, 4000);
+                const user = data.result[0]
 
-                    } else {
-                        inicioExitosoUser.style.display = "block";
-                        inicioExitosoAdmin.style.display = "none";
-                        inicioDenegado.style.display = "none";
-                        dataError.style.display = "none";
-                        // Redirigir al usuario a la pagina de index
-                        setTimeout(() => {
-                            window.location.href = "index.html";
-                        }, 4000);
-
-                    }
-                    
-                } else {
+                //un usuario normal intenta entrar como administrador
+                if (user.adminUser === 'no' && userAdmin.checked) {
                     inicioExitosoUser.style.display = "none";
                     inicioExitosoAdmin.style.display = "none";
-                    inicioDenegado.style.display = "none";
-                    dataError.style.display = "block";
-                    console.log("Usuario y/o contraseña incorrectos:", usuario, pass);
-                }
+                    inicioDenegado.style.display = "block";
+                    dataError.style.display = "none";
+                    setTimeout(() => {
+                        inicioDenegado.style.display = "none";
+                    }, 4000);
 
+                }
+                else if (user.adminUser === 'si' && userAdmin.checked) {
+                    inicioExitosoUser.style.display = "none";
+                    inicioExitosoAdmin.style.display = "block";
+                    inicioDenegado.style.display = "none";
+                    dataError.style.display = "none";
+                    // Redirigir al usuario a la pagina de administrador
+                    setTimeout(() => {
+                        window.location.href = "adminUsers.html";
+                    }, 4000);
+
+                } else {
+                    inicioExitosoUser.style.display = "block";
+                    inicioExitosoAdmin.style.display = "none";
+                    inicioDenegado.style.display = "none";
+                    dataError.style.display = "none";
+                    // Redirigir al usuario a la pagina de index
+                    setTimeout(() => {
+                        window.location.href = "index.html";
+                    }, 4000);
+                }
             })
+
             .catch(error => {
                 console.error('Error:', error);
+                inicioExitosoUser.style.display = "none";
+                inicioExitosoAdmin.style.display = "none";
+                inicioDenegado.style.display = "none";
+                dataError.style.display = "block";
+                setTimeout(() => {
+                    dataError.style.display = "none";
+                    console.log("Usuario y/o contraseña incorrectos:", usuario, pass);
+                }, 4000);
             });
-
     }
-
 })
-
 
 function datosVacios(usuario, pass) {
     if (usuario !== "") {
