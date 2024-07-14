@@ -1,4 +1,9 @@
 const db = require("../db/db.js");
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
+const config = require("../config/config");
+//const { secretKey, tokenExpiresIn } = require("../config/config");    en que momento y de que forma se van a usar esas variables deconstruidas en el front?
+
 
 const ObtenerTodosLosUsuarios = (req, res) => {
     const sql = "SELECT * FROM usuarios";
@@ -23,30 +28,76 @@ const ObtenerUsuarioPorId = (req, res) => {
     });
 };
 
-const ObtenerUsuarioPorNombre = (req, res) => {
-    const { nombreUsuario } = req.params;
-    const sql = `SELECT * FROM usuarios WHERE nombreUsuario = ?`; // ? es el parámetro de la consulta ingresado por el usuario
+const register = (req, res) => {
+    const { nombreUsuario, contraseña, email, adminUser } = req.body;
 
-    db.query(sql, [nombreUsuario], (err, result) => {
-        {
-            if (err) throw err;
+    const hashedPassword = bcrypt.hashSync(contraseña, 8);
 
-            res.json(result);
-        }
+    const sql = `INSERT INTO usuarios (nombreUsuario, contraseña, email, adminUser) VALUES (?, ?, ?, ?)`;
+    db.query(sql, [nombreUsuario, hashedPassword, email, adminUser], (err, result) => {
+        if (err) throw err;
+
+        // Creacion del token
+        const token = jwt.sign(
+            //ver despues si hace falta sacar o agregar algo al payload//////////////////////
+            { idUsuario: result.insertId, nombreUsuario: nombreUsuario },
+            config.secretKey,
+            { expiresIn: config.tokenExpiresIn } 
+        );
+
+        // Enviar la respuesta con el token
+        res.status(201).send({ auth: true, token });
     });
 };
 
-const crearUsuario = (req, res) => {
-    const { nombreUsuario, contraseña, email, adminUser } = req.body;
+const login = (req, res) => {
+    const { nombreUsuario, contraseña } = req.body;
 
-    const sql = `INSERT INTO usuarios (nombreUsuario, contraseña, email, adminUser) VALUES (?, ?, ?, ?)`;
-    db.query(sql, [nombreUsuario, contraseña, email, adminUser], (err, result) => {
+    const sql = `SELECT * FROM usuarios WHERE nombreUsuario = ?`;
+
+    db.query(sql, [nombreUsuario], (err, result) => {
         if (err) throw err;
-        res.json({
-            mensaje: "Usuario creado exitosamente",
-            idUsuario: result.insertId,
+     
+        // Si el usuario no se encuentra, devuelve un error 404 con el mensaje 'Usuario no encontrado'
+        if (result.length === 0) {
+            return res.status(404).send({ message: 'Usuario no encontrado.' });
+        }
+            
+        const user = result[0];
+
+        // Compara la contraseña proporcionada con la contraseña almacenada
+        const passwordIsValid = bcrypt.compareSync(contraseña, user.contraseña);
+
+        if (!passwordIsValid) {
+            return res.status(401).send({ auth: false, token: null });
+        }
+
+        // Generamos el token
+        const token = jwt.sign(
+            { idUsuario: user.idUsuario, nombreUsuario: user.nombreUsuario },
+            config.secretKey,
+            { expiresIn: config.tokenExpiresIn } 
+        );
+
+        // Envía el token JWT al cliente con estado 200 y el resultado
+        res.status(200).send({
+            auth: true,
+            token,
+            result
         });
     });
+
+
+    // const { nombreUsuario } = req.params;
+    // const sql = `SELECT * FROM usuarios WHERE nombreUsuario = ?`; // ? es el parámetro de la consulta ingresado por el usuario
+
+    // db.query(sql, [nombreUsuario], (err, result) => {
+    //     {
+    //         if (err) throw err;
+
+    //         res.json(result);
+    //     }
+    // });
 };
 
 const ActualizarUsuario = (req, res) => {
@@ -81,8 +132,8 @@ const BorrarUsuario = (req, res) => {
 module.exports = {
     ObtenerTodosLosUsuarios,
     ObtenerUsuarioPorId,
-    ObtenerUsuarioPorNombre,
-    crearUsuario,
+    register,
+    login,
     ActualizarUsuario,
     BorrarUsuario,
 };

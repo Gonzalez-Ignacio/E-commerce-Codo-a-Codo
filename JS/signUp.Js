@@ -1,4 +1,6 @@
-document.getElementById('formregistro').addEventListener('submit', function(event) {
+const url = 'http://localhost:3000';
+
+document.getElementById('formregistro').addEventListener('submit', function (event) {
     event.preventDefault();
 
     // Obtener los valores de los campos
@@ -22,8 +24,6 @@ document.getElementById('formregistro').addEventListener('submit', function(even
 
 const tituloPrincipal = document.querySelector("h1");
 
-const url = 'http://localhost:3000';
-document.getElementById
 document.getElementById('formregistro').addEventListener('submit', (event) => {
     event.preventDefault();
     const nombreUsuario = document.getElementById('usuario').value;
@@ -31,15 +31,29 @@ document.getElementById('formregistro').addEventListener('submit', (event) => {
     const email = document.getElementById('mail').value;
     const adminUser = tituloPrincipal.textContent.trim() === "ADMINISTRADOR" ? 'si' : 'no'
 
-    fetch(`${url}/usuarios`, {
-        method: 'POST',
+    // Objeto para configurar el fetch
+    const options = {
+        method: "POST",
         headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json",
         },
-        body: JSON.stringify({nombreUsuario,contraseña,email,adminUser})
-    })
-    .then(response => response.json())
-    .then(() => {
-        document.getElementById('formregistro').reset();
+        body: JSON.stringify({ nombreUsuario, contraseña, email, adminUser })
+    };
+
+    fetch(`${url}/auth/register`, options)
+        .then((response) => {
+            //Si no obtenemos respuesta...
+            if (!response.ok) {
+                throw new Error("Error al registrarse");
+            }
+            //Retornamos lo recibido desde el servidor
+            return response.json();
+        })
+        .then(() => {
+            document.getElementById('formregistro').reset();
+        })
+        .catch ((error) => {
+        console.error("Error:", error);
+        alert("Error al registrarse");
     });
 });
