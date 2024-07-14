@@ -3,14 +3,15 @@ const url = 'http://localhost:3000';
 document.getElementById('formregistro').addEventListener('submit', function (event) {
     event.preventDefault();
 
-    // Obtener los valores de los campos
-    var usuario = document.getElementById('usuario').value;
-    var email = document.getElementById('mail').value;
-    var contraseña = document.getElementById('pass').value;
+    const tituloPrincipal = document.querySelector("h1");
+    const nombreUsuario = document.getElementById('usuario').value;
+    const contraseña = document.getElementById('pass').value;
+    const email = document.getElementById('mail').value;
+    const adminUser = tituloPrincipal.textContent.trim() === "ADMINISTRADOR" ? 'si' : 'no'
     var mensajeExitoso = document.getElementById('inicio-exitoso');
 
     // Verificar que todos los campos no estén vacíos
-    if (usuario !== '' && email !== '' && contraseña !== '') {
+    if (nombreUsuario !== '' && email !== '' && contraseña !== '') {
         mensajeExitoso.style.display = 'block';
         // Redirigir a la pagina de iniciar sesión
         setTimeout(() => {
@@ -20,17 +21,7 @@ document.getElementById('formregistro').addEventListener('submit', function (eve
         // Si hay algún campo vacío, no mostrar el mensaje de éxito
         mensajeExitoso.style.display = 'none';
     }
-});
-
-const tituloPrincipal = document.querySelector("h1");
-
-document.getElementById('formregistro').addEventListener('submit', (event) => {
-    event.preventDefault();
-    const nombreUsuario = document.getElementById('usuario').value;
-    const contraseña = document.getElementById('pass').value;
-    const email = document.getElementById('mail').value;
-    const adminUser = tituloPrincipal.textContent.trim() === "ADMINISTRADOR" ? 'si' : 'no'
-
+    
     // Objeto para configurar el fetch
     const options = {
         method: "POST",
