@@ -3,14 +3,15 @@ require('dotenv').config();
 
 const connection = mySql.createConnection(
     {
-        host: 'mysql-ecommercecac.alwaysdata.net',
-        user: '369111',
-        password: 'cacgrupo19',
-        database: 'ecommercecac_ecommercecac2024'
-        // host: process.env.DB_HOST,
-        // user: process.env.DB_USER,
-        // password: process.env.DB_PASSWORD,
-        // database: process.env.DB_NAME
+        host: process.env.DB_HOST,
+        user: process.env.DB_USER,
+        password: process.env.DB_PASSWORD,
+        database: process.env.DB_NAME
+        // host: 'mysql-ecommercecac.alwaysdata.net',
+        // user: '369111',
+        // password: 'cacgrupo19',
+        // database: 'ecommercecac_ecommercecac2024'
+        
     }
 );
 

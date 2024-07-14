@@ -2,6 +2,10 @@ const express = require('express');
 const authRoutes = require('./routes/authRoutes');
 const cors = require('cors');
 const path = require('path');
+const dotenv = require('dotenv');
+
+// Cargar variables de entorno desde el archivo .env
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -9,6 +13,9 @@ const PORT = process.env.PORT || 3000;
 const usuariosRouter = require('./routes/usuarios');
 const productosRouter = require('./routes/productos');
 const comprasRouter = require('./routes/compras');
+
+// Conexión a la base de datos
+const db = require('./db/db'); // Asegúrate de que la ruta a tu archivo de conexión a la base de datos es correcta
 
 app.use(cors());
 app.use(express.json());
