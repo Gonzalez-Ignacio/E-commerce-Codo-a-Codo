@@ -2,8 +2,6 @@ const db = require("../db/db.js");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const config = require("../config/config");
-//const { secretKey, tokenExpiresIn } = require("../config/config");    en que momento y de que forma se van a usar esas variables deconstruidas en el front?
-
 
 const ObtenerTodosLosUsuarios = (req, res) => {
     const sql = "SELECT * FROM usuarios";
@@ -39,7 +37,6 @@ const register = (req, res) => {
 
         // Creacion del token
         const token = jwt.sign(
-            //ver despues si hace falta sacar o agregar algo al payload//////////////////////
             { idUsuario: result.insertId, nombreUsuario: nombreUsuario },
             config.secretKey,
             { expiresIn: config.tokenExpiresIn } 
@@ -86,18 +83,6 @@ const login = (req, res) => {
             result
         });
     });
-
-
-    // const { nombreUsuario } = req.params;
-    // const sql = `SELECT * FROM usuarios WHERE nombreUsuario = ?`; // ? es el parámetro de la consulta ingresado por el usuario
-
-    // db.query(sql, [nombreUsuario], (err, result) => {
-    //     {
-    //         if (err) throw err;
-
-    //         res.json(result);
-    //     }
-    // });
 };
 
 const ActualizarUsuario = (req, res) => {
