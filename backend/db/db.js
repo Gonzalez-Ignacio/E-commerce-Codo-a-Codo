@@ -4,7 +4,7 @@ require('dotenv').config();
 const connection = mySql.createConnection(
     {
         host: 'mysql-ecommercecac.alwaysdata.net',
-        user: '369111_root',
+        user: '369111',
         password: 'cacgrupo19',
         database: 'ecommercecac_ecommercecac2024'
         // host: process.env.DB_HOST,
