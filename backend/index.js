@@ -43,11 +43,3 @@ app.listen(PORT, () => {
     console.log(`Servidor ejecutándose en el puerto ${PORT}`);
 });
 
-// Manejo de excepciones no capturadas
-process.on('uncaughtException', (err) => {
-    console.error('Excepción no capturada:', err);
-});
-
-process.on('unhandledRejection', (reason, promise) => {
-    console.error('Rechazo no manejado en la promesa:', promise, 'razón:', reason);
-});
